@@ -1,0 +1,23 @@
+.footer {
+  background: var(--gray-900);
+  color: var(--white);
+  height: 90px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: var(--width-content);
+  margin: auto;
+}
+
+.navList {
+  display: flex;
+  gap: 40px;
+}
+
+.navItem {
+  list-style-type: none;
+}

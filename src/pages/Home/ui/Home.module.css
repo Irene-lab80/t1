@@ -1,0 +1,9 @@
+.main {
+  flex: 1;
+
+}
+
+.content {
+  max-width: var(--width-content);
+  margin: auto;
+}

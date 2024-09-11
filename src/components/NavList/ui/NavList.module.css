@@ -1,0 +1,16 @@
+.navList {
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  list-style-type: none;
+}
+
+.link {
+  color: var(--white);
+  text-decoration: none;
+}
+

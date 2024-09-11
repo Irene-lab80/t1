@@ -23,6 +23,5 @@
   --semi-bold: 600;
   --regular: 400;
 
-
-
+  --width-content: calc(1440px - 130px * 2);
 }

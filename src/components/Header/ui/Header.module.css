@@ -1,0 +1,47 @@
+.wrapper {
+  background: var(--violet);
+}
+
+.header {
+  color: var(--white);
+  height: 90px;
+  padding: 0 20px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: var(--width-content);
+  margin: auto;
+}
+
+.navList {
+  display: flex;
+  gap: 40px;
+}
+
+.navItem {
+  list-style-type: none;
+}
+
+.hero {
+  max-width: var(--width-content);
+  margin: auto;
+  border-top: 1px solid var(--white);
+  background: var(--violet);
+}
+
+.heroText {
+  color: var(--white);
+  max-width: 320px;
+}
+
+.heroButton {
+  background: var(--orange);
+  color: var(--white);
+  padding: 20px 50px;
+  border-radius: 4px;
+  margin-top: 30px;
+}
