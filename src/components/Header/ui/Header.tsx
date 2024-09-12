@@ -1,20 +1,26 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ROUTES } from "../../../utils";
 import { NavList } from "../../NavList";
 import style from "./Header.module.css";
+import { CartCounter } from "../../CartCounter";
 
 export const Header = (): JSX.Element => {
   const location = useLocation().pathname;
+  const cart_items_count = 999;
 
   return (
     <div className={style.wrapper}>
       <header className={style.header}>
         <div className={style.inner}>
-          <div>Goods4you</div>
+          <Link className={style.logoLink} to={ROUTES.HOME}>
+            <h1 className={style.logo}>Goods4you</h1>
+          </Link>
           <NavList>
             <NavList.Item link={ROUTES.HOME}>Catalog</NavList.Item>
             <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
-            <NavList.Item link={ROUTES.CART}>Cart</NavList.Item>
+            <NavList.Item link={ROUTES.CART}>
+              <CartCounter count={cart_items_count} />
+            </NavList.Item>
             <NavList.Item link={ROUTES.PROFILE}>Johnson Smith</NavList.Item>
           </NavList>
         </div>

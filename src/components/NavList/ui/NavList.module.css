@@ -6,11 +6,15 @@
 }
 
 .navItem {
+  display: flex;
   list-style-type: none;
+  align-items: center;
 }
 
 .link {
+  display: flex;
   color: var(--white);
   text-decoration: none;
+  font-size: 14px;
+  font-weight: var(--semi-bold);
 }
-

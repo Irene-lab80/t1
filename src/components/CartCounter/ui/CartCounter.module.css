@@ -1,0 +1,29 @@
+.cart {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.cartIconWrapper {
+  position: relative;
+}
+
+
+.countWrapper {
+  position: absolute;
+  top: 13px;
+  right: -4px;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: var(--orange);
+  font-size: 6px;
+  font-weight: var(--regular);
+  line-height: 14px;
+}

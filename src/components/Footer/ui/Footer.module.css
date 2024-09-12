@@ -13,11 +13,13 @@
   margin: auto;
 }
 
-.navList {
-  display: flex;
-  gap: 40px;
+/* logo */
+.logoLink {
+  color: var(--white);
+  text-decoration: none;
 }
 
-.navItem {
-  list-style-type: none;
+.logo {
+  font-size: 30px;
+  font-weight: var(--bold);
 }
