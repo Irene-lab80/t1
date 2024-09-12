@@ -1,0 +1,21 @@
+.button {
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.default {
+  padding: 20px 50px;
+  line-height: 22px;
+}
+
+.icon {
+  padding: 16px;
+  line-height: 0;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

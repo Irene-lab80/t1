@@ -3,6 +3,7 @@ import { ROUTES } from "../../../utils";
 import { NavList } from "../../NavList";
 import style from "./Header.module.css";
 import { CartCounter } from "../../CartCounter";
+import { Button } from "../../Button";
 
 export const Header = (): JSX.Element => {
   const location = useLocation().pathname;
@@ -31,9 +32,9 @@ export const Header = (): JSX.Element => {
             We sell smartphones, laptops, clothes, shoes and many other products
             at low prices
           </p>
-          <button className={style.heroButton} type="button">
-            Go to shopping
-          </button>
+          <div className={style.heroButton}>
+            <Button type="button">Go to shopping</Button>
+          </div>
         </div>
       )}
     </div>

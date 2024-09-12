@@ -3,3 +3,4 @@ export { Footer } from "./Footer";
 export { Layout } from "./Layout";
 export { NavList } from "./NavList";
 export { CartCounter } from "./CartCounter";
+export { Button } from "./Button";
