@@ -1,48 +1,48 @@
 import { Button } from "../../../components/Button";
-import { CartIcon } from "../../../shared/icons";
+import { FrequentlyAskedQuestion } from "../../../components/FrequentlyAskedQuestion";
+import { ProductList } from "../../../components/ProductList";
+import { SearchInput } from "../../../components/SearchInput";
+import { data, mock_faq } from "./data";
+
 import style from "./Home.module.css";
-import { data } from "./data";
 
 export const Home = (): JSX.Element => {
   return (
     <main className={style.main}>
-      <div className={style.content}>
-        <h2 className={style.title}>Catalog</h2>
+      <section className={style.content}>
+        <h2 className={style.title} id="catalog">
+          Catalog
+        </h2>
         <div className={style.search}>
-          <input
-            className={style.searchInput}
+          <SearchInput
             type="search"
             name="search"
             id="search"
             placeholder="Search by title"
           />
         </div>
-
-        <div className={style.productsList}>
-          {data.map((product) => (
-            <div className={style.card}>
-              <img
-                className={style.image}
-                src={product.image}
-                alt={product.name}
-              />
-              <div className={style.cardFooter}>
-                <div>
-                  <h2 className={style.cardTitle}>{product.name}</h2>
-                  <div className={style.price}>${product.price}</div>
-                </div>
-                <Button variant="icon">
-                  <CartIcon />
-                </Button>
-              </div>
-            </div>
-          ))}
+        <div className={style.products}>
+          <ProductList products={data} />
         </div>
-
         <div className={style.buttonWrapper}>
           <Button type="button">Show more</Button>
         </div>
-      </div>
+      </section>
+      <section className={style.faq} id="faq">
+        <div className={style.faqInner}>
+          <h2 className={style.title}>FAQ</h2>
+
+          <div className={style.faqList}>
+            {mock_faq.map((faq) => (
+              <FrequentlyAskedQuestion
+                answer={faq.answer}
+                question={faq.question}
+                isOpen={faq.id === 1 ? true : false}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

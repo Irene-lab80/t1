@@ -19,3 +19,11 @@
     height: 16px;
   }
 }
+
+.link {
+  display: flex;
+  width: fit-content;
+  padding: 20px 50px;
+  line-height: 22px;
+  text-decoration: none;
+}

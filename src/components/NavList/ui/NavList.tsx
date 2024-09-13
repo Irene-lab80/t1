@@ -21,7 +21,9 @@ interface IPropsItem {
 export const NavItem = ({ children, link }: IPropsItem): JSX.Element => {
   return (
     <li className={style.navItem}>
-      <Link className={style.link} to={link}>{children}</Link>
+      <Link className={style.link} to={link}>
+        {children}
+      </Link>
     </li>
   );
 };

@@ -7,6 +7,7 @@ import { Button } from "../../Button";
 
 export const Header = (): JSX.Element => {
   const location = useLocation().pathname;
+
   const cart_items_count = 999;
 
   return (
@@ -33,7 +34,9 @@ export const Header = (): JSX.Element => {
             at low prices
           </p>
           <div className={style.heroButton}>
-            <Button type="button">Go to shopping</Button>
+            <Button link="#catalog" type="button">
+              Go to shopping
+            </Button>
           </div>
         </div>
       )}
