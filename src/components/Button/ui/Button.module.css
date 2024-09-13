@@ -3,6 +3,16 @@
   color: var(--white);
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.button:hover {
+  background: var(--orange-dark);
+  transition: all 0.3s ease-in;
+}
+
+.button:disabled {
+  background: var(--orange-white);
 }
 
 .default {

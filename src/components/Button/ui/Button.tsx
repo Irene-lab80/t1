@@ -12,7 +12,12 @@ const buttonType = {
   link: style.link,
 };
 
-export const Button = ({ children, variant = "default", link }: IProps) => {
+export const Button = ({
+  children,
+  variant = "default",
+  link,
+  ...props
+}: IProps) => {
   return (
     <>
       {link ? (
@@ -20,7 +25,7 @@ export const Button = ({ children, variant = "default", link }: IProps) => {
           {children}
         </a>
       ) : (
-        <button className={`${style.button} ${buttonType[variant]}`}>
+        <button className={`${style.button} ${buttonType[variant]}`} {...props}>
           {children}
         </button>
       )}
