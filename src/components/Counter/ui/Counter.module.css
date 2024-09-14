@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 188px;
+}
+
+.text {
+  color: var(--gray-900);
+  line-height: 140%;
+}
