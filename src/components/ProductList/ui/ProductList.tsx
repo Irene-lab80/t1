@@ -17,6 +17,7 @@ export const ProductList = ({ products }: IProps) => {
           price={product.price}
           key={product.id}
           id={product.id}
+          initialCOunt={product.id === 4 ? 1 : 0}
         />
       ))}
     </div>
