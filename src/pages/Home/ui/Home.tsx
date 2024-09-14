@@ -1,7 +1,9 @@
-import { Button } from "../../../components/Button";
-import { FrequentlyAskedQuestion } from "../../../components/FrequentlyAskedQuestion";
-import { ProductList } from "../../../components/ProductList";
-import { SearchInput } from "../../../components/SearchInput";
+import {
+  Button,
+  FrequentlyAskedQuestion,
+  ProductList,
+  SearchInput,
+} from "../../../components";
 import { data, mock_faq } from "./data";
 
 import style from "./Home.module.css";

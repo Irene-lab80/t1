@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home } from "../pages";
+import { Cart, Error, Home, Product } from "../pages";
 import { ROUTES } from "./routes";
-import { Layout } from "../components/Layout";
+import { Layout } from "../components";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <div>error</div>,
+    errorElement: <Error />,
     children: [
       {
         element: <Home />,
@@ -15,11 +15,11 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.CART,
-        element: <div>cart</div>,
+        element: <Cart />,
       },
       {
         path: `${ROUTES.PRODUCT}/:id`,
-        element: <div>product</div>,
+        element: <Product />,
         index: true,
       },
     ],
