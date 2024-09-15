@@ -5,6 +5,14 @@
 .content {
   max-width: var(--width-content);
   margin: auto;
+
+  @media (max-width: 1250px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
+  }
 }
 
 .title {
@@ -37,6 +45,14 @@
 
   .title {
     color: var(--white);
+  }
+
+  @media (max-width: 1250px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
   }
 }
 

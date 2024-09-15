@@ -3,14 +3,11 @@ import { NavList } from "../../NavList";
 import { CartCounter } from "../../CartCounter";
 import { Button } from "../../Button";
 import { ROUTES } from "@/app/routes";
+import { MobileNav } from "@/components";
 
 import style from "./Header.module.css";
-import { BurgerMenuIcon } from "@/shared/icons";
-import { useState } from "react";
-import { MobileNav } from "@/components/MobileNav";
 
 export const Header = (): JSX.Element => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation().pathname;
   const cart_items_count = 999;
 

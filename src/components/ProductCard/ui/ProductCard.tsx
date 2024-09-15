@@ -31,7 +31,7 @@ export const ProductCard = ({ image, name, price, id }: IProduct) => {
           <span className={style.overlayText}>Show details</span>
         </div>
       </div>
-      <div className={style.footer}>
+      <div className={`${style.footer} ${count >= 1 ? style.footerShort : ""}`}>
         <div>
           <h2
             className={`${style.title} ${count >= 1 ? style.titleShort : ""}`}
