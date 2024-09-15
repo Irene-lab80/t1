@@ -9,3 +9,8 @@ export interface ICartProduct extends IProduct {
   count: number;
   deleted: boolean;
 }
+
+export interface ITag {
+  id: number;
+  name: string;
+}
