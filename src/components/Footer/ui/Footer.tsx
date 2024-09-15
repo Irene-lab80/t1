@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import style from "./Footer.module.css";
 import { NavList } from "../../NavList";
 import { ROUTES } from "@/app/routes";
+
+import style from "./Footer.module.css";
 
 export const Footer = (): JSX.Element => {
   return (
@@ -11,7 +12,7 @@ export const Footer = (): JSX.Element => {
           <div className={style.logo}>Goods4you</div>
         </Link>
         <NavList>
-          <NavList.Item link={ROUTES.HOME}>Catalog</NavList.Item>
+          <NavList.Item link={ROUTES.CATALOG}>Catalog</NavList.Item>
           <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
         </NavList>
       </div>

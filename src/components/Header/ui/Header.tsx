@@ -19,12 +19,12 @@ export const Header = (): JSX.Element => {
             <h1 className={style.logo}>Goods4you</h1>
           </Link>
           <NavList>
-            <NavList.Item link={ROUTES.HOME}>Catalog</NavList.Item>
+            <NavList.Item link={ROUTES.CATALOG}>Catalog</NavList.Item>
             <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
             <NavList.Item link={ROUTES.CART}>
               <CartCounter count={cart_items_count} />
             </NavList.Item>
-            <NavList.Item link={ROUTES.PROFILE}>Johnson Smith</NavList.Item>
+            <NavList.Item>Johnson Smith</NavList.Item>
           </NavList>
         </div>
       </header>

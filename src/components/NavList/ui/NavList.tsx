@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import style from "./NavList.module.css";
+import { HashLink as Link } from "react-router-hash-link";
 
 interface IProps {
   children: React.ReactNode;
@@ -15,15 +15,19 @@ export const NavList = ({ children }: IProps): JSX.Element => {
 
 interface IPropsItem {
   children: React.ReactNode;
-  link: string;
+  link?: string;
 }
 
 export const NavItem = ({ children, link }: IPropsItem): JSX.Element => {
   return (
     <li className={style.navItem}>
-      <Link className={style.link} to={link}>
-        {children}
-      </Link>
+      {link ? (
+        <Link className={style.link} to={link}>
+          {children}
+        </Link>
+      ) : (
+        <span className={style.link}>{children}</span>
+      )}
     </li>
   );
 };
