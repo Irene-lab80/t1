@@ -28,6 +28,7 @@ export const MobileNav = ({
   return (
     <div>
       <button
+        aria-label="menu"
         className={`${style.burgerMenu}`}
         onClick={() => setMenuOpen((prev) => !prev)}
       >

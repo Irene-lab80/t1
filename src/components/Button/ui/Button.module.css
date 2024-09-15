@@ -5,6 +5,8 @@
   cursor: pointer;
   transition: all 0.3s ease-in;
   will-change: background-color;
+  font-size: 16px;
+  font-weight: var(--regular);
 }
 
 .button:hover {

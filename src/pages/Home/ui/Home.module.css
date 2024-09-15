@@ -48,11 +48,11 @@
   }
 
   @media (max-width: 1250px) {
-    padding: 0 24px;
+    padding: 24px;
   }
 
   @media (max-width: 964px) {
-    padding: 0 16px;
+    padding: 16px;
   }
 }
 

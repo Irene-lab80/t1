@@ -6,9 +6,18 @@ import { Button } from "../../Button";
 import { Counter } from "../../Counter";
 
 import style from "./ProductCard.module.css";
+interface IProps extends IProduct {
+  initialCount: number;
+}
 
-export const ProductCard = ({ image, name, price, id }: IProduct) => {
-  const [count, setCount] = useState(0);
+export const ProductCard = ({
+  image,
+  name,
+  price,
+  id,
+  initialCount,
+}: IProps) => {
+  const [count, setCount] = useState(initialCount);
 
   const buttonWrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();

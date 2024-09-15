@@ -1,5 +1,6 @@
 export const BurgerMenuIcon = () => (
   <svg
+    aria-hidden="true"
     width="34px"
     height="34px"
     viewBox="0 0 24 24"
