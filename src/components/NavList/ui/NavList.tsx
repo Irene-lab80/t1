@@ -3,12 +3,13 @@ import { HashLink as Link } from "react-router-hash-link";
 
 interface IProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export const NavList = ({ children }: IProps): JSX.Element => {
+export const NavList = ({ children, className }: IProps): JSX.Element => {
   return (
     <nav>
-      <ul className={style.navList}>{children}</ul>
+      <ul className={`${style.navList} ${className}`}>{children}</ul>
     </nav>
   );
 };
@@ -22,7 +23,7 @@ export const NavItem = ({ children, link }: IPropsItem): JSX.Element => {
   return (
     <li className={style.navItem}>
       {link ? (
-        <Link id='nav-link' className={style.link} to={link}>
+        <Link id="nav-link" className={style.link} to={link}>
           {children}
         </Link>
       ) : (

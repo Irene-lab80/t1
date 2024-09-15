@@ -9,4 +9,9 @@
   @media (max-width: 964px) {
     padding: 10px;
   }
+
+  @media (max-width: 425px) {
+    padding: 0;
+    border: none;
+  }
 }

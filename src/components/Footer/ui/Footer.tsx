@@ -11,7 +11,7 @@ export const Footer = (): JSX.Element => {
         <Link className={style.logoLink} to={ROUTES.HOME}>
           <div className={style.logo}>Goods4you</div>
         </Link>
-        <NavList>
+        <NavList className={style.nav}>
           <NavList.Item link={ROUTES.CATALOG}>Catalog</NavList.Item>
           <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
         </NavList>

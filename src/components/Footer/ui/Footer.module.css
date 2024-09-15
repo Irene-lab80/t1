@@ -3,6 +3,10 @@
   color: var(--white);
   height: 90px;
 
+  @media (max-width: 1250px) {
+    padding: 0 24px;
+  }
+
   @media (max-width: 964px) {
     padding: 0 16px;
   }
@@ -25,4 +29,12 @@
 .logo {
   font-size: 30px;
   font-weight: var(--bold);
+}
+
+.nav {
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }
