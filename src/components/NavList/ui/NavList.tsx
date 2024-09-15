@@ -22,7 +22,7 @@ export const NavItem = ({ children, link }: IPropsItem): JSX.Element => {
   return (
     <li className={style.navItem}>
       {link ? (
-        <Link className={style.link} to={link}>
+        <Link id='nav-link' className={style.link} to={link}>
           {children}
         </Link>
       ) : (

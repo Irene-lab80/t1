@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import {
   Button,
   FrequentlyAskedQuestion,
@@ -14,7 +14,10 @@ export const Home = (): JSX.Element => {
     <main className={style.main}>
       <Helmet>
         <title>Catalog | Goods4you</title>
-        <meta name="description" content="Any products from famous brands with worldwide delivery" />
+        <meta
+          name="description"
+          content="Any products from famous brands with worldwide delivery"
+        />
       </Helmet>
       <section className={style.content}>
         <h2 className={style.title} id="catalog">
@@ -45,6 +48,7 @@ export const Home = (): JSX.Element => {
                 answer={faq.answer}
                 question={faq.question}
                 isOpen={faq.id === 1 ? true : false}
+                key={faq.id}
               />
             ))}
           </div>

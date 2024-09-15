@@ -2,6 +2,10 @@
   background: var(--gray-900);
   color: var(--white);
   height: 90px;
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
+  }
 }
 
 .inner {
@@ -13,7 +17,6 @@
   margin: auto;
 }
 
-/* logo */
 .logoLink {
   color: var(--white);
   text-decoration: none;

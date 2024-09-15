@@ -1,7 +1,7 @@
 import { Title } from "@/components";
 import { CartInfo, CartProducts } from "../CartComponents";
 import { mock_cart_data } from "./data";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 import style from "./Cart.module.css";
 

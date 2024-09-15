@@ -5,8 +5,26 @@
 .header {
   color: var(--white);
   height: 90px;
-  /* padding: 0 20px; */
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
+  }
 }
+
+.desktopNav {
+  @media (max-width: 635px) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: none;
+
+  @media (max-width: 635px) {
+    display: flex;
+  }
+}
+
 
 .inner {
   display: flex;

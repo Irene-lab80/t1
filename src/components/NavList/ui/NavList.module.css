@@ -18,3 +18,8 @@
   font-size: 14px;
   font-weight: var(--semi-bold);
 }
+
+.link:hover {
+  text-decoration: underline;
+  color: var(--gray-200);
+}

@@ -1,5 +1,13 @@
 .main {
   margin-bottom: 92px;
+
+  @media (max-width: 1250px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
+  }
 }
 
 .content {
@@ -12,4 +20,9 @@
   grid-template-columns: calc(776 / 1180 * 100%) calc(356 / 1180 * 100%);
   gap: 48px;
   margin-top: 48px;
+
+  @media (max-width: 1250px) {
+    grid-template-columns: 1fr;
+
+  }
 }

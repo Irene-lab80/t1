@@ -11,7 +11,7 @@ export const CartProducts = ({ products }: IProps) => {
   return (
     <div className={style.wrapper}>
       {products.map((product) => (
-        <CartProductCard product={product} />
+        <CartProductCard key={product.id} product={product} />
       ))}
     </div>
   );

@@ -5,10 +5,13 @@ import { Button } from "../../Button";
 import { ROUTES } from "@/app/routes";
 
 import style from "./Header.module.css";
+import { BurgerMenuIcon } from "@/shared/icons";
+import { useState } from "react";
+import { MobileNav } from "@/components/MobileNav";
 
 export const Header = (): JSX.Element => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation().pathname;
-
   const cart_items_count = 999;
 
   return (
@@ -18,14 +21,20 @@ export const Header = (): JSX.Element => {
           <Link className={style.logoLink} to={ROUTES.HOME}>
             <h1 className={style.logo}>Goods4you</h1>
           </Link>
-          <NavList>
-            <NavList.Item link={ROUTES.CATALOG}>Catalog</NavList.Item>
-            <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
-            <NavList.Item link={ROUTES.CART}>
-              <CartCounter count={cart_items_count} />
-            </NavList.Item>
-            <NavList.Item>Johnson Smith</NavList.Item>
-          </NavList>
+          <div className={style.mobileNav}>
+            <MobileNav cart_items_count={cart_items_count} />
+          </div>
+
+          <div className={style.desktopNav}>
+            <NavList>
+              <NavList.Item link={ROUTES.CATALOG}>Catalog</NavList.Item>
+              <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
+              <NavList.Item link={ROUTES.CART}>
+                <CartCounter count={cart_items_count} />
+              </NavList.Item>
+              <NavList.Item>Johnson Smith</NavList.Item>
+            </NavList>
+          </div>
         </div>
       </header>
       {location === "/" && (
