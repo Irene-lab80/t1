@@ -2,8 +2,10 @@ import style from "./Error.module.css";
 
 export const Error = (): JSX.Element => {
   return (
-    <main className={style.main}>
-      <section className={style.content}>Error has occured!</section>
-    </main>
+    <div className={style.main} id="main">
+      <div className={style.fof}>
+        <h1>Error 404</h1>
+      </div>
+    </div>
   );
 };

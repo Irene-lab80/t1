@@ -1,5 +1,3 @@
-import { CartCounter } from "../../../../../components";
-import { Counter } from "../../../../../components/Counter";
 import { ICartProduct } from "../../../../../utils/types";
 import { CartProductCard } from "../../CartProductCard";
 
