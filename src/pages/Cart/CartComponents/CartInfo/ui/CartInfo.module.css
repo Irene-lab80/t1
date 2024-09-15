@@ -1,0 +1,50 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: var(--gray-500);
+}
+
+.totalCountRow {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.withoutDiscountRow {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 30px;
+
+  .value {
+    font-weight: var(--bold);
+  }
+
+  .title {
+    font-weight: var(--semi-bold);
+  }
+}
+
+
+.totalPriceRow {
+  margin-top: 10px;
+  font-size: 24px;
+  line-height: 36px;
+
+  .value {
+    font-weight: var(--bold);
+  }
+
+  .title {
+    font-weight: var(--semi-bold);
+  }
+}
+
+
+.separator {
+  width: 100%;
+  height: 1px;
+  margin-top: 20px;
+  background: var(--gray-200);
+}

@@ -1,0 +1,15 @@
+.main {
+  margin-bottom: 92px;
+}
+
+.content {
+  max-width: var(--width-content);
+  margin: 0 auto;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: calc(776 / 1180 * 100%) calc(356 / 1180 * 100%);
+  gap: 48px;
+  margin-top: 48px;
+}

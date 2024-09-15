@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  color: var(--gray-900);
+  text-decoration: none;
+  font-weight: var(--semi-bold);
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+.price {
+  font-size: 18px;
+}
+
+.deleted {
+  .left {
+    opacity: 0.6;
+  }
+}
+
+.left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.right {
+  display: flex;
+  gap: 48px;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+}
+
+.deleteButton {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-500);
+  background: transparent;
+  cursor: pointer;
+}

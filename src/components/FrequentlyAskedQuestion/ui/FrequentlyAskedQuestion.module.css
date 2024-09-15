@@ -27,6 +27,7 @@
   max-height: 0;
   overflow: hidden;
   transition: all 0.5 ease;
+  will-change: max-height;
   line-height: 27px;
   font-weight: var(--semi-bold);
 }
@@ -35,6 +36,12 @@
   margin-bottom: 20px;
 }
 
+.icon {
+  position: absolute;
+  right: 0;
+  transition: 0.5s;
+  will-change: transform;
+}
 
 .faq.open .question .icon {
   transform: rotate(45deg);
@@ -44,10 +51,4 @@
 .faq.open .answer {
   max-height: 1000px;
   opacity: 1;
-}
-
-.icon {
-  position: absolute;
-  right: 0;
-  transition: 0.5s;
 }
