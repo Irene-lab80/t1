@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { mock_product_data } from "./data";
-import { pluralize } from "../../../utils/helpers";
+import { pluralize } from "@/utils/helpers";
 import { Price, Rating } from "../ProductComponents";
-import { Title } from "../../../components";
+import { Title } from "@/components";
 
 import style from "./Product.module.css";
 
@@ -29,9 +29,7 @@ export const Product = (): JSX.Element => {
         <title>Essence Mascara Lash Princess | Goods4you</title>
         <meta
           name="description"
-          content="The Essence Mascara Lash Princess is a popular mascara known for its
-          volumizing and lengthening effects. Achieve dramatic lashes with this
-          long-lasting and cruelty-free formula."
+          content="Any products from famous brands with worldwide delivery"
         />
       </Helmet>
       <section className={style.content}>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CrossIcon } from "../../../shared/icons";
+import { CrossIcon } from "@/shared/icons";
 
 import style from "./FrequentlyAskedQuestion.module.css";
 

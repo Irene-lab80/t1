@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./Footer.module.css";
 import { NavList } from "../../NavList";
-import { ROUTES } from "../../../utils";
+import { ROUTES } from "@/app/routes";
 
 export const Footer = (): JSX.Element => {
   return (

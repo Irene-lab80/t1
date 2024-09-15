@@ -1,9 +1,10 @@
+import { Helmet } from "react-helmet";
 import {
   Button,
   FrequentlyAskedQuestion,
   ProductList,
   SearchInput,
-} from "../../../components";
+} from "@/components";
 import { data, mock_faq } from "./data";
 
 import style from "./Home.module.css";
@@ -11,6 +12,10 @@ import style from "./Home.module.css";
 export const Home = (): JSX.Element => {
   return (
     <main className={style.main}>
+      <Helmet>
+        <title>Catalog | Goods4you</title>
+        <meta name="description" content="Any products from famous brands with worldwide delivery" />
+      </Helmet>
       <section className={style.content}>
         <h2 className={style.title} id="catalog">
           Catalog

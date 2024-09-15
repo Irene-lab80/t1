@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../../../../components";
-import { Counter } from "../../../../../components/Counter";
-import { CartIcon } from "../../../../../shared/icons";
-import { ICartProduct } from "../../../../../utils/types";
+import { Button, Counter } from "@/components";
+import { CartIcon } from "@/shared/icons";
+import { ICartProduct } from "@/utils/types";
+import { ROUTES } from "@/app/routes";
 
 import style from "./CartProductCard.module.css";
-import { ROUTES } from "../../../../../utils";
 
 interface IProps {
   product: ICartProduct;

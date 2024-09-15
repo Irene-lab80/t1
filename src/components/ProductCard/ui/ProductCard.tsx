@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { CartIcon } from "../../../shared/icons";
-import { IProduct } from "../../../utils/types";
+import { CartIcon } from "@/shared/icons";
+import { IProduct } from "@/utils/types";
 import { Button } from "../../Button";
 import { Counter } from "../../Counter";
 

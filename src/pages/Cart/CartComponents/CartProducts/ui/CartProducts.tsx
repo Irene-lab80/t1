@@ -1,4 +1,4 @@
-import { ICartProduct } from "../../../../../utils/types";
+import { ICartProduct } from "@/utils/types";
 import { CartProductCard } from "../../CartProductCard";
 
 import style from "./CartProducts.module.css";

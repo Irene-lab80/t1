@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StarIcon } from "../../../../../shared/icons";
+import { StarIcon } from "@/shared/icons";
 
 import style from "./Rating.module.css";
 

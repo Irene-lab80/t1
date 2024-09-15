@@ -1,6 +1,7 @@
-import { Title } from "../../../components";
+import { Title } from "@/components";
 import { CartInfo, CartProducts } from "../CartComponents";
 import { mock_cart_data } from "./data";
+import { Helmet } from "react-helmet";
 
 import style from "./Cart.module.css";
 
@@ -10,6 +11,13 @@ export const Cart = (): JSX.Element => {
 
   return (
     <main className={style.main}>
+      <Helmet>
+        <title>My cart | Goods4you</title>
+        <meta
+          name="description"
+          content="Any products from famous brands with worldwide delivery"
+        />
+      </Helmet>
       <section className={style.content}>
         <Title>My cart</Title>
         <div className={style.info}>

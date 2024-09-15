@@ -1,4 +1,4 @@
-import { IProduct } from "../../../utils/types";
+import { IProduct } from "@/utils/types";
 import { ProductCard } from "../../ProductCard";
 
 import style from "./ProductList.module.css";
@@ -17,7 +17,6 @@ export const ProductList = ({ products }: IProps) => {
           price={product.price}
           key={product.id}
           id={product.id}
-          initialCOunt={product.id === 4 ? 1 : 0}
         />
       ))}
     </div>

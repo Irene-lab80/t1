@@ -1,4 +1,4 @@
-import { CartIcon } from "../../../shared/icons";
+import { CartIcon } from "@/shared/icons";
 
 import style from "./CartCounter.module.css";
 

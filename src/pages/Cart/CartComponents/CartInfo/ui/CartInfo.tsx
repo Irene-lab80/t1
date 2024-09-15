@@ -1,4 +1,4 @@
-import { pluralize } from "../../../../../utils/helpers";
+import { pluralize } from "@/utils/helpers";
 import style from "./CartInfo.module.css";
 
 interface IProps {

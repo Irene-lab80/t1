@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { ROUTES } from "../../../utils";
 import { NavList } from "../../NavList";
-import style from "./Header.module.css";
 import { CartCounter } from "../../CartCounter";
 import { Button } from "../../Button";
+import { ROUTES } from "@/app/routes";
+
+import style from "./Header.module.css";
 
 export const Header = (): JSX.Element => {
   const location = useLocation().pathname;

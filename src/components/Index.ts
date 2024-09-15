@@ -9,3 +9,4 @@ export { SearchInput } from "./SearchInput";
 export { FrequentlyAskedQuestion } from "./FrequentlyAskedQuestion";
 export { Title } from "./Title";
 export { ProductList } from "./ProductList";
+export { Counter } from "./Counter";
