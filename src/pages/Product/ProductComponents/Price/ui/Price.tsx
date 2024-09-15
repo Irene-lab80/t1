@@ -24,6 +24,8 @@ export const Price = ({
       </div>
     </div>
 
-    <Button>Add to cart</Button>
+    <div className={style.button}>
+      <Button>Add to cart</Button>
+    </div>
   </div>
 );
