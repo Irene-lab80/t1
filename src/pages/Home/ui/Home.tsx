@@ -8,8 +8,10 @@ import {
 import { data, mock_faq } from "./data";
 
 import style from "./Home.module.css";
+import { useGetProductsQuery } from "@/app/store/mainApi";
 
 export const Home = (): JSX.Element => {
+  useGetProductsQuery({ limit: 12, search: "q", skip: 0 });
   return (
     <main className={style.main}>
       <Helmet>

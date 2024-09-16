@@ -5,11 +5,15 @@ import { router } from "./app/router";
 import { HelmetProvider } from "react-helmet-async";
 
 import "./shared/index.css";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </HelmetProvider>
   </StrictMode>
 );
