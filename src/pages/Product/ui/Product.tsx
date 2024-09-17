@@ -1,27 +1,26 @@
 import { Helmet } from "react-helmet-async";
-import { mock_product_data } from "./data";
 import { Gallery, Info } from "../ProductComponents";
 
+import { useGetProductByIdQuery } from "@/app/store/products/products";
+import { Loader } from "@/components";
+import { useParams } from "react-router-dom";
+import { skipToken } from "@reduxjs/toolkit/query";
+
 import style from "./Product.module.css";
+import { calculateDiscountedPrice } from "@/utils/helpers";
 
 export const Product = (): JSX.Element => {
+  const { id } = useParams();
+
   const {
-    available_count,
-    tags,
-    description,
-    discount,
-    image,
-    name,
-    old_price,
-    price,
-    ships_in,
-    warranty_duration,
-    rating,
-    thumbnails,
-  } = mock_product_data;
+    data: product,
+    isLoading,
+    isFetching,
+  } = useGetProductByIdQuery(id ? +id : skipToken);
 
   return (
     <main className={style.main}>
+      {(isLoading || isFetching) && <Loader />}
       <Helmet>
         <title>Essence Mascara Lash Princess | Goods4you</title>
         <meta
@@ -29,21 +28,35 @@ export const Product = (): JSX.Element => {
           content="Any products from famous brands with worldwide delivery"
         />
       </Helmet>
-      <section className={style.content}>
-        <Gallery image={image} name={name} thumbnails={thumbnails} />
-        <Info
-          available_count={available_count}
-          description={description}
-          discount={discount}
-          name={name}
-          old_price={old_price}
-          price={price}
-          rating={rating}
-          ships_in={ships_in}
-          tags={tags}
-          warranty_duration={warranty_duration}
-        />
-      </section>
+      {product && (
+        <section className={style.content}>
+          {/* TODO: переделать */}
+          <Gallery
+            image={product.images[0]}
+            name={product.title}
+            thumbnails={product.images.map((image, i) => ({
+              id: i + 1,
+              image: image,
+              name: "",
+            }))}
+          />
+          <Info
+            name={product.title}
+            available_count={product.stock}
+            description={product.description}
+            discount={product.discountPercentage}
+            old_price={product.price}
+            price={calculateDiscountedPrice(
+              product.price,
+              product.discountPercentage
+            )}
+            rating={Math.round(product.rating)}
+            ships_in={product.shippingInformation}
+            tags={product.tags.map((tag, i) => ({ id: i + 1, name: tag }))}
+            warranty_duration={product.warrantyInformation}
+          />
+        </section>
+      )}
     </main>
   );
 };

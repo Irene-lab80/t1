@@ -1,10 +1,10 @@
 import { Title } from "@/components";
-import style from "./Info.module.css";
 import { Rating } from "../../Rating";
 import { Tags } from "../../Tags";
 import { ITag } from "@/utils/types";
-import { pluralize } from "@/utils/helpers";
 import { Price } from "../../Price";
+
+import style from "./Info.module.css";
 
 interface IProps {
   name: string;
@@ -12,8 +12,8 @@ interface IProps {
   tags: ITag[];
   available_count: number;
   description: string;
-  warranty_duration: number;
-  ships_in: number;
+  warranty_duration: string;
+  ships_in: string;
   old_price: number;
   discount: number;
   price: number;
@@ -48,8 +48,8 @@ export const Info = ({
 
         <p className={style.description}>{description}</p>
         <div className={style.warranty}>
-          <span>{pluralize(warranty_duration, "month")} warranty</span>
-          <span>Ships in {pluralize(ships_in, "month")}</span>
+          <span>{warranty_duration}</span>
+          <span>{ships_in}</span>
         </div>
 
         <Price oldPrice={old_price} discount={discount} newPrice={price} />

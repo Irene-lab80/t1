@@ -14,7 +14,10 @@ export const ProductList = ({ products }: IProps) => (
       <ProductCard
         image={product.thumbnail}
         name={product.title}
-        price={calculateDiscountedPrice(product.price, product.discountPercentage)}
+        price={calculateDiscountedPrice(
+          product.price,
+          product.discountPercentage
+        )}
         key={product.id}
         id={product.id}
         initialCount={0}

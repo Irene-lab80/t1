@@ -7,10 +7,10 @@ import {
   SearchInput,
 } from "@/components";
 import { mock_faq } from "./data";
-import { useGetProductsQuery } from "@/app/store/mainApi";
 import { useState } from "react";
 
 import style from "./Home.module.css";
+import { useGetProductsQuery } from "@/app/store/products/products";
 
 export const Home = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
