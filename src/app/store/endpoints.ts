@@ -1,3 +1,3 @@
 export const endpoints = {
-  products: 'products'
+  searchProducts: '/products/search'
 }

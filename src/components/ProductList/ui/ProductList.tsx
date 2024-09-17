@@ -1,25 +1,24 @@
-import { IProduct } from "@/utils/types";
+import { Product } from "@/app/store/products/types";
 import { ProductCard } from "../../ProductCard";
 
 import style from "./ProductList.module.css";
+import { calculateDiscountedPrice } from "@/utils/helpers";
 
 interface IProps {
-  products: IProduct[];
+  products: Product[];
 }
 
-export const ProductList = ({ products }: IProps) => {
-  return (
-    <div className={style.productsList}>
-      {products.map((product) => (
-        <ProductCard
-          image={product.image}
-          name={product.name}
-          price={product.price}
-          key={product.id}
-          id={product.id}
-          initialCount={product.id === 4 ? 1 : 0}
-        />
-      ))}
-    </div>
-  );
-};
+export const ProductList = ({ products }: IProps) => (
+  <div className={style.productsList}>
+    {products.map((product) => (
+      <ProductCard
+        image={product.thumbnail}
+        name={product.title}
+        price={calculateDiscountedPrice(product.price, product.discountPercentage)}
+        key={product.id}
+        id={product.id}
+        initialCount={0}
+      />
+    ))}
+  </div>
+);

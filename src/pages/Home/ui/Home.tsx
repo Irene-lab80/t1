@@ -2,18 +2,29 @@ import { Helmet } from "react-helmet-async";
 import {
   Button,
   FrequentlyAskedQuestion,
+  Loader,
   ProductList,
   SearchInput,
 } from "@/components";
-import { data, mock_faq } from "./data";
+import { mock_faq } from "./data";
+import { useGetProductsQuery } from "@/app/store/mainApi";
+import { useState } from "react";
 
 import style from "./Home.module.css";
-import { useGetProductsQuery } from "@/app/store/mainApi";
 
 export const Home = (): JSX.Element => {
-  useGetProductsQuery({ limit: 12, search: "q", skip: 0 });
+  const [skip, setSkip] = useState(0);
+
+  const { data, isLoading, isFetching } = useGetProductsQuery({
+    limit: 12,
+    skip,
+  });
+
+  const showMoreHandler = () => setSkip((prev) => prev + 12);
+
   return (
     <main className={style.main}>
+      {(isLoading || isFetching) && <Loader />}
       <Helmet>
         <title>Catalog | Goods4you</title>
         <meta
@@ -33,12 +44,20 @@ export const Home = (): JSX.Element => {
             placeholder="Search by title"
           />
         </div>
-        <div className={style.products}>
-          <ProductList products={data} />
-        </div>
-        <div className={style.buttonWrapper}>
-          <Button type="button">Show more</Button>
-        </div>
+        {data && (
+          <>
+            <div className={style.products}>
+              <ProductList products={data.products} />
+            </div>
+            <div className={style.buttonWrapper}>
+              {data?.total !== data?.products.length && (
+                <Button type="button" onClick={showMoreHandler}>
+                  Show more
+                </Button>
+              )}
+            </div>
+          </>
+        )}
       </section>
       <section className={style.faq} id="faq">
         <div className={style.faqInner}>
