@@ -30,16 +30,7 @@ export const Product = (): JSX.Element => {
       </Helmet>
       {product && (
         <section className={style.content}>
-          {/* TODO: переделать */}
-          <Gallery
-            image={product.images[0]}
-            name={product.title}
-            thumbnails={product.images.map((image, i) => ({
-              id: i + 1,
-              image: image,
-              name: "",
-            }))}
-          />
+          <Gallery images={product.images} name={product.title} />
           <Info
             name={product.title}
             available_count={product.stock}
