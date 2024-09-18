@@ -1,17 +1,21 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./app/router";
 import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import { StrictMode } from "react";
+
+import { router,store } from "@/app";
+import { CartProvider } from "@/providers";
+
 import "./shared/index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HelmetProvider>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
       </Provider>
     </HelmetProvider>
   </StrictMode>

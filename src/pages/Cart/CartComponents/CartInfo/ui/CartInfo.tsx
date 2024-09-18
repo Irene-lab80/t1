@@ -3,11 +3,15 @@ import style from "./CartInfo.module.css";
 
 interface IProps {
   count: number;
-  price: number;
+  discounted_price: number;
   no_discount_price: number;
 }
 
-export const CartInfo = ({ count, price, no_discount_price }: IProps) => {
+export const CartInfo = ({
+  count,
+  discounted_price,
+  no_discount_price,
+}: IProps) => {
   return (
     <div className={style.checkoutInfo}>
       <div className={`${style.row} ${style.totalCountRow}`}>
@@ -24,7 +28,7 @@ export const CartInfo = ({ count, price, no_discount_price }: IProps) => {
 
       <div className={`${style.row} ${style.totalPriceRow}`}>
         <div className={style.title}>Total price</div>
-        <div className={style.value}>${price}</div>
+        <div className={style.value}>${discounted_price}</div>
       </div>
     </div>
   );

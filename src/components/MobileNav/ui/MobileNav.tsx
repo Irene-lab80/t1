@@ -9,7 +9,7 @@ import style from "./MobileNav.module.css";
 export const MobileNav = ({
   cart_items_count,
 }: {
-  cart_items_count: number;
+  cart_items_count: number | undefined;
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);

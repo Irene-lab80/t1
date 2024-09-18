@@ -6,10 +6,12 @@ import { ROUTES } from "@/app/routes";
 import { MobileNav } from "@/components";
 
 import style from "./Header.module.css";
+import { useAppSelector } from "@/app/store/store";
 
 export const Header = (): JSX.Element => {
   const location = useLocation().pathname;
-  const cart_items_count = 999;
+  const { data } = useAppSelector((state) => state.cartReducer);
+  const count = data?.carts[0].totalProducts;
 
   return (
     <div className={style.wrapper}>
@@ -19,7 +21,7 @@ export const Header = (): JSX.Element => {
             <h1 className={style.logo}>Goods4you</h1>
           </Link>
           <div className={style.mobileNav}>
-            <MobileNav cart_items_count={cart_items_count} />
+            <MobileNav cart_items_count={count} />
           </div>
 
           <div className={style.desktopNav}>
@@ -27,7 +29,7 @@ export const Header = (): JSX.Element => {
               <NavList.Item link={ROUTES.CATALOG}>Catalog</NavList.Item>
               <NavList.Item link={ROUTES.FAQ}>FAQ</NavList.Item>
               <NavList.Item link={ROUTES.CART}>
-                <CartCounter count={cart_items_count} />
+                <CartCounter count={count} />
               </NavList.Item>
               <NavList.Item>Johnson Smith</NavList.Item>
             </NavList>
