@@ -43,19 +43,21 @@ export const Gallery = ({ images, name }: IProps) => {
           </div>
         ))}
       </div>
-      <div ref={thumbnailRef} className={`'keen-slider' ${style.thumbnails}`}>
-        {images.map((image, i) => (
-          <div key={i} className="keen-slider__slide">
-            <img
-              className={`${style.imageThumbnail} ${
-                currentSlide === i ? style.imageThumbnailActive : ""
-              }`}
-              src={image}
-              alt={name}
-            />
-          </div>
-        ))}
-      </div>
+      {images?.length > 1 && (
+        <div ref={thumbnailRef} className={`'keen-slider' ${style.thumbnails}`}>
+          {images.map((image, i) => (
+            <div key={i} className="keen-slider__slide">
+              <img
+                className={`${style.imageThumbnail} ${
+                  currentSlide === i ? style.imageThumbnailActive : ""
+                }`}
+                src={image}
+                alt={name}
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

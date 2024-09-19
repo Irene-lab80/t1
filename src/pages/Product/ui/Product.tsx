@@ -16,7 +16,7 @@ export const Product = (): JSX.Element => {
   const {
     data: product,
     isLoading,
-    isFetching,
+    isFetching
   } = useGetProductByIdQuery(id ? +id : skipToken);
 
   return (
