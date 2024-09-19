@@ -6,8 +6,9 @@ import { Loader } from "@/components";
 import { useParams } from "react-router-dom";
 import { skipToken } from "@reduxjs/toolkit/query";
 
-import style from "./Product.module.css";
 import { calculateDiscountedPrice } from "@/utils/helpers";
+
+import style from "./Product.module.css";
 
 export const Product = (): JSX.Element => {
   const { id } = useParams();

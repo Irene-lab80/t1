@@ -13,7 +13,7 @@ export const Price = ({
 }) => (
   <div className={style.wrapper}>
     <div className={style.price}>
-      <div>
+      <div className={style.pricesWrapper}>
         <div className={style.currentPrice}>${newPrice}</div>
         <div className={style.oldPrice}>${oldPrice}</div>
       </div>
