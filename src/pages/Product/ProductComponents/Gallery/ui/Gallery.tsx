@@ -1,9 +1,7 @@
-import { useState } from "react";
-import style from "./Gallery.module.css";
 import { useKeenSlider } from "keen-slider/react";
-
-import "keen-slider/keen-slider.min.css";
 import { ThumbnailPlugin } from "../ThumbnailPlugin";
+import "keen-slider/keen-slider.min.css";
+import style from "./Gallery.module.css";
 
 interface IProps {
   images: string[];
@@ -11,53 +9,52 @@ interface IProps {
 }
 
 export const Gallery = ({ images, name }: IProps) => {
-  const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    initial: 0,
   });
-
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
     {
       breakpoints: {
-        "(min-width: 400px)": {
-          slides: { perView: 3, spacing: 5 },
+        "(max-width: 1200px)": {
+          slides: {
+            perView: 4,
+            spacing: 10,
+          },
         },
-        "(min-width: 1000px)": {
-          slides: { perView: 3, spacing: 10 },
+        "(max-width: 480px)": {
+          slides: {
+            perView: 3,
+            spacing: 10,
+          },
         },
       },
-      slides: { perView: 3 },
+      initial: 0,
+      slides: {
+        perView: 6,
+        spacing: 20,
+      },
     },
     [ThumbnailPlugin(instanceRef)]
   );
 
   return (
     <div className={style.wrapper}>
-      <div ref={ref} className="keen-slider">
-        {images.map((image, i) => (
-          <div key={i} className="keen-slider__slide">
-            <img className={style.image} src={image} alt={name} />
+      <div ref={sliderRef} className="keen-slider">
+        {images.map((img, i) => (
+          <div key={i} className={`keen-slider__slide ${style.slide}`}>
+            <img className={style.img} src={img} alt={name} />
           </div>
         ))}
       </div>
-      {images?.length > 1 && (
-        <div ref={thumbnailRef} className={`'keen-slider' ${style.thumbnails}`}>
-          {images.map((image, i) => (
-            <div key={i} className="keen-slider__slide">
-              <img
-                className={`${style.imageThumbnail} ${
-                  currentSlide === i ? style.imageThumbnailActive : ""
-                }`}
-                src={image}
-                alt={name}
-              />
-            </div>
-          ))}
-        </div>
-      )}
+
+      <div ref={thumbnailRef} className={`keen-slider ${style.thumbnail}`}>
+        {images.map((img, i) => (
+          <div key={i} className={`keen-slider__slide ${style.slide}`}>
+            <img className={style.img} src={img} alt={name} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
