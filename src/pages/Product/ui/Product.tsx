@@ -9,16 +9,20 @@ import { skipToken } from "@reduxjs/toolkit/query";
 import { calculateDiscountedPrice } from "@/utils/helpers";
 
 import style from "./Product.module.css";
+import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 
 export const Product = (): JSX.Element => {
   const { id } = useParams();
+  const getProductCount = useGetProductCountInCart();
 
   const {
     data: product,
     isLoading,
-    isFetching
+    isFetching,
   } = useGetProductByIdQuery(id ? +id : skipToken);
 
+  const inCartCount = id ? getProductCount(+id) : 0;
+  console.log(inCartCount);
   return (
     <main className={style.main}>
       {(isLoading || isFetching) && <Loader />}
@@ -46,6 +50,7 @@ export const Product = (): JSX.Element => {
             ships_in={product.shippingInformation}
             tags={product.tags.map((tag, i) => ({ id: i + 1, name: tag }))}
             warranty_duration={product.warrantyInformation}
+            inCartCount={inCartCount}
           />
         </section>
       )}

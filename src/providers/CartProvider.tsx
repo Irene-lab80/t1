@@ -8,9 +8,10 @@ export const CartProvider = ({
   children: ReactNode;
 }): JSX.Element => {
   const dispatch = useAppDispatch();
-  console.log("first");
+  const cart_id = 6;
+
   useEffect(() => {
-    dispatch(getCart(6));
+    dispatch(getCart(cart_id));
   }, [dispatch]);
 
   return <>{children}</>;
