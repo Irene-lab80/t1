@@ -1,8 +1,8 @@
 import { endpoints } from "../endpoints";
-import { mainApi } from "../mainApi";
+import { mainApi, tags } from "../mainApi";
 import { IResponseProducts, Product } from "./types";
 
-export const extendedApi = mainApi.injectEndpoints({
+export const productsApi = mainApi.injectEndpoints({
   endpoints: (builder) => ({
     getProductById: builder.query<Product, number>({
       query: (id) => ({
@@ -17,17 +17,26 @@ export const extendedApi = mainApi.injectEndpoints({
         url: endpoints.searchProducts,
         params,
       }),
-      serializeQueryArgs: ({ endpointName }) => {
-        return endpointName;
+      serializeQueryArgs: ({ endpointName, queryArgs }) => ({
+        name: endpointName,
+        type: queryArgs.q,
+      }),
+      merge(currentCacheData, responseData) {
+        const newResponses = responseData.products.filter(
+          (newResponse) =>
+            !currentCacheData.products.some(
+              (currentResponse) => currentResponse.id === newResponse.id
+            )
+        );
+        currentCacheData.products.push(...newResponses);
       },
-      merge: (currentCache, newResp) => {
-        currentCache.products.push(...newResp.products);
-      },
+
       forceRefetch({ currentArg, previousArg }) {
         return currentArg !== previousArg;
       },
+      providesTags: [tags.products],
     }),
   }),
 });
 
-export const { useGetProductByIdQuery, useGetProductsQuery } = extendedApi;
+export const { useGetProductByIdQuery, useGetProductsQuery } = productsApi;

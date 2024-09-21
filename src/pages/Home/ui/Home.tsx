@@ -7,19 +7,29 @@ import {
   SearchInput,
 } from "@/components";
 import { mock_faq } from "./data";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+import { useGetProductsQuery } from "@/app/store/products/products";
 
 import style from "./Home.module.css";
-import { useGetProductsQuery } from "@/app/store/products/products";
+import { useResetProductsCache } from "@/hooks/useResetProductsCache";
 
 export const Home = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
+  const [inputValue, setInputValue] = useState("");
+
+  const resetApiCache = useResetProductsCache();
 
   const { data, isLoading, isFetching } = useGetProductsQuery({
     limit: 12,
     skip,
+    q: inputValue,
   });
 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSkip(0);
+    resetApiCache();
+    setInputValue(e.target.value);
+  };
   const showMoreHandler = () => setSkip((prev) => prev + 12);
 
   return (
@@ -42,6 +52,8 @@ export const Home = (): JSX.Element => {
             name="search"
             id="search"
             placeholder="Search by title"
+            onChange={handleInputChange}
+            value={inputValue}
           />
         </div>
         {data && (
