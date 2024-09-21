@@ -6,28 +6,27 @@ import {
   ProductList,
   SearchInput,
 } from "@/components";
-import { mock_faq } from "./data";
 import { ChangeEvent, useState } from "react";
 import { useGetProductsQuery } from "@/app/store/products/products";
 
+import useDebounce from "@/hooks/useDebounce";
+
 import style from "./Home.module.css";
-import { useResetProductsCache } from "@/hooks/useResetProductsCache";
+import { mock_faq } from "@/mock/mock_faq";
 
 export const Home = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
   const [inputValue, setInputValue] = useState("");
-
-  const resetApiCache = useResetProductsCache();
+  const debouncedSearchTerm = useDebounce(inputValue, 500);
 
   const { data, isLoading, isFetching } = useGetProductsQuery({
     limit: 12,
     skip,
-    q: inputValue,
+    q: debouncedSearchTerm,
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSkip(0);
-    resetApiCache();
     setInputValue(e.target.value);
   };
   const showMoreHandler = () => setSkip((prev) => prev + 12);

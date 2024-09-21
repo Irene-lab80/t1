@@ -28,14 +28,14 @@ export const cartSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(getCart.pending, (state, action) => {
+      .addCase(getCart.pending, (state) => {
         state.status = "loading";
       })
       .addCase(getCart.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.data = action.payload;
       })
-      .addCase(getCart.rejected, (state, action) => {
+      .addCase(getCart.rejected, (state) => {
         state.status = "failed";
       });
   },

@@ -12,13 +12,13 @@ export const CartCounter = ({ count }: IProps) => {
       Cart
       <div className={style.cartIconWrapper}>
         <CartIcon />
-        {count && (
+        {count ? (
           <div className={style.countWrapper}>
             {count > 0 && (
               <div className={style.count}>{count < 99 ? count : "99+"}</div>
             )}
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
