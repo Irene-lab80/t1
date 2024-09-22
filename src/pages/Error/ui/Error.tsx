@@ -6,6 +6,7 @@ export const Error = (): JSX.Element => {
       <div className={style.fof}>
         <h1>Error 404</h1>
       </div>
+      {/* <button>Go home</button> */}
     </div>
   );
 };

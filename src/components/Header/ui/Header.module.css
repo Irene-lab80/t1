@@ -1,5 +1,7 @@
 .wrapper {
   background: var(--violet);
+  position: relative;
+  z-index: 1;
 }
 
 .header {
@@ -39,6 +41,10 @@
   margin: auto;
 }
 
+.innerMain {
+  border-bottom: 1px solid var(--white);
+}
+
 .navList {
   display: flex;
   gap: 40px;
@@ -46,34 +52,6 @@
 
 .navItem {
   list-style-type: none;
-}
-
-/* hero */
-.hero {
-  max-width: var(--width-content);
-  margin: auto;
-  border-top: 1px solid var(--white);
-  background: var(--violet);
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: var(--semi-bold);
-
-  @media (max-width: 1250px) {
-    padding: 0 24px;
-  }
-
-  @media (max-width: 964px) {
-    padding: 0 16px;
-  }
-}
-
-.heroText {
-  color: var(--white);
-  max-width: 325px;
-}
-
-.heroButton {
-  margin-top: 30px;
 }
 
 /* logo */

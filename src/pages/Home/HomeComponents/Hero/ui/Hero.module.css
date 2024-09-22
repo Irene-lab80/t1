@@ -1,0 +1,48 @@
+.wrapper {
+  background: var(--violet);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: var(--semi-bold);
+  margin-top: -1px;
+
+  @media (max-width: 1250px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
+  }
+}
+
+.inner {
+  max-width: var(--width-content);
+  margin: auto;
+  padding: 115px 0;
+  background: center 61% url("/backgroundtext.png") no-repeat;
+
+  @media (max-width: 1250px) {
+    background-size: 90%;
+  }
+
+  @media (max-width: 635px) {
+    background-position: center;
+  }
+}
+
+.title {
+  font-size: 36px;
+  line-height: 50px;
+  color: var(--white);
+  font-weight: var(--regular);
+  max-width: 550px;
+}
+
+.text {
+  color: var(--white);
+  max-width: 325px;
+  margin-top: 30px;
+}
+
+.heroButton {
+  margin-top: 30px;
+}

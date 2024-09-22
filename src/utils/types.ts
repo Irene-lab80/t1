@@ -14,3 +14,9 @@ export interface ITag {
   id: number;
   name: string;
 }
+
+export interface IFaq {
+  id: number;
+  question: string;
+  answer: string;
+}

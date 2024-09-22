@@ -1,0 +1,28 @@
+.faq {
+  background: var(--violet);
+  margin-top: 48px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .title {
+    color: var(--white);
+  }
+
+  @media (max-width: 1250px) {
+    padding: 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 16px;
+  }
+}
+
+.faqInner {
+  color: var(--white);
+  max-width: 880px;
+  margin: auto;
+}
+
+.faqList {
+  margin-top: 20px;
+}

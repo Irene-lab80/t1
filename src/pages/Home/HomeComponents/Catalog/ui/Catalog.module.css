@@ -1,10 +1,7 @@
-.main {
-  flex: 1;
-}
-
 .content {
   max-width: var(--width-content);
   margin: auto;
+  margin-top: 48px;
 
   @media (max-width: 1250px) {
     padding: 0 24px;

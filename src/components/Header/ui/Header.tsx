@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { NavList } from "../../NavList";
 import { CartCounter } from "../../CartCounter";
-import { Button } from "../../Button";
 import { ROUTES } from "@/app/routes";
 import { MobileNav } from "@/components";
 
@@ -16,7 +15,7 @@ export const Header = ({
 }): JSX.Element => (
   <div className={style.wrapper}>
     <header className={style.header}>
-      <div className={style.inner}>
+      <div className={`${style.inner} ${path === "/" ? style.innerMain : ""}`}>
         <Link className={style.logoLink} to={ROUTES.HOME}>
           <h1 className={style.logo}>Goods4you</h1>
         </Link>
@@ -36,18 +35,5 @@ export const Header = ({
         </div>
       </div>
     </header>
-    {path === "/" && (
-      <div className={style.hero}>
-        <p className={style.heroText}>
-          We sell smartphones, laptops, clothes, shoes and many other products
-          at low prices
-        </p>
-        <div className={style.heroButton}>
-          <Button link="#catalog" type="button">
-            Go to shopping
-          </Button>
-        </div>
-      </div>
-    )}
   </div>
 );
