@@ -7,8 +7,11 @@ import { useAppSelector } from "@/app/store/store";
 
 export const Layout = (): JSX.Element => {
   const { data } = useAppSelector((state) => state.cartReducer);
-  const count = data?.carts[0].totalProducts;
+
   const path = useLocation().pathname;
+
+  const cart = data?.carts[0];
+  const count = cart ? cart.totalProducts : 0;
 
   return (
     <div className={style.layout}>

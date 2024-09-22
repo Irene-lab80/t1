@@ -1,28 +1,37 @@
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { skipToken } from "@reduxjs/toolkit/query";
+import { ROUTES } from "@/app/routes";
 import { Helmet } from "react-helmet-async";
 import { Gallery, Info } from "../ProductComponents";
-
 import { useGetProductByIdQuery } from "@/app/store/products/products";
 import { Loader } from "@/components";
-import { useParams } from "react-router-dom";
-import { skipToken } from "@reduxjs/toolkit/query";
-
 import { calculateDiscountedPrice } from "@/utils/helpers";
+import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 
 import style from "./Product.module.css";
-import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 
 export const Product = (): JSX.Element => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const getProductCount = useGetProductCountInCart();
 
   const {
     data: product,
     isLoading,
     isFetching,
+    error,
   } = useGetProductByIdQuery(id ? +id : skipToken);
 
+  useEffect(() => {
+    if (error && "status" in error && error.status === 404) {
+      navigate(`${ROUTES.ERROR}`);
+    }
+  }, [error, navigate]);
+
   const inCartCount = id ? getProductCount(+id) : 0;
-  console.log(inCartCount);
+
   return (
     <main className={style.main}>
       {(isLoading || isFetching) && <Loader />}

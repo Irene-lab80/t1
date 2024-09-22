@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
         element: <Product />,
         index: true,
       },
+      {
+        path: ROUTES.ERROR,
+        element: <Error />,
+      },
     ],
   },
 ]);

@@ -12,3 +12,4 @@ export { ProductList } from "./ProductList";
 export { Counter } from "./Counter";
 export { MobileNav } from "./MobileNav";
 export { Loader } from "./Loader";
+export { NoItems } from "./NoItems";

@@ -23,3 +23,8 @@
   text-decoration: underline;
   color: var(--gray-200);
 }
+
+.link>div:hover {
+  text-decoration: underline;
+  color: var(--gray-200);
+}

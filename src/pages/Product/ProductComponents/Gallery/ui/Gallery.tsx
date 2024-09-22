@@ -48,13 +48,15 @@ export const Gallery = ({ images, name }: IProps) => {
         ))}
       </div>
 
-      <div ref={thumbnailRef} className={`keen-slider ${style.thumbnail}`}>
-        {images.map((img, i) => (
-          <div key={i} className={`keen-slider__slide ${style.slide}`}>
-            <img className={style.img} src={img} alt={name} />
-          </div>
-        ))}
-      </div>
+      {images?.length > 1 && (
+        <div ref={thumbnailRef} className={`keen-slider ${style.thumbnail}`}>
+          {images.map((img, i) => (
+            <div key={i} className={`keen-slider__slide ${style.slide}`}>
+              <img className={style.img} src={img} alt={name} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

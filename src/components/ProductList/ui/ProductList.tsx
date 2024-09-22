@@ -1,9 +1,11 @@
 import { Product } from "@/app/store/products/types";
 import { ProductCard } from "../../ProductCard";
 
-import style from "./ProductList.module.css";
 import { calculateDiscountedPrice } from "@/utils/helpers";
 import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
+import { NoItems } from "@/components/NoItems";
+
+import style from "./ProductList.module.css";
 
 interface IProps {
   products: Product[];
@@ -29,7 +31,7 @@ export const ProductList = ({ products }: IProps) => {
           />
         ))}
       </div>
-      {!products?.length && <div className={style.notFound}>Not found</div>}
+      {!products?.length && <NoItems>Not found</NoItems>}
     </>
   );
 };
