@@ -1,7 +1,7 @@
-import style from "./SearchInput.module.css";
+import style from "./Input.module.css";
 
 type IProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export const SearchInput = (props: IProps) => {
+export const Input = (props: IProps) => {
   return <input className={style.input} {...props} />;
 };

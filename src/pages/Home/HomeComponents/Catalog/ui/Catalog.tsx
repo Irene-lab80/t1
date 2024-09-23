@@ -1,4 +1,4 @@
-import { Button, ProductList, SearchInput } from "@/components";
+import { Button, ProductList, Input } from "@/components";
 import { IResponseProducts } from "@/app/store/products/types";
 import { ChangeEvent } from "react";
 
@@ -22,7 +22,7 @@ export const Catalog = ({
       Catalog
     </h3>
     <div className={style.search}>
-      <SearchInput
+      <Input
         type="search"
         name="search"
         id="search"

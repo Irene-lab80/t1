@@ -4,3 +4,10 @@
   font-weight: var(--semi-bold);
   color: var(--gray-900);
 }
+
+.titleBold {
+  font-size: 36px;
+  line-height: 56px;
+  font-weight: var(--bold);
+  color: var(--gray-900);
+}
