@@ -36,7 +36,7 @@ export const CartProductCard = ({ product }: IProps) => {
         </div>
       </div>
       {isDeleted ? (
-        <Button variant="icon">
+        <Button aria-label="add to cart" variant="icon">
           <CartIcon />
         </Button>
       ) : (

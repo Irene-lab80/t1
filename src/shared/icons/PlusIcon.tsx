@@ -1,5 +1,6 @@
 export const PlusIcon = () => (
   <svg
+    aria-hidden={true}
     width="18"
     height="18"
     viewBox="0 0 18 18"
@@ -19,6 +20,7 @@ export const PlusIcon = () => (
 
 export const BigPlusIcon = () => (
   <svg
+    aria-hidden={true}
     width="30"
     height="30"
     viewBox="0 0 30 30"

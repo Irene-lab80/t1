@@ -14,6 +14,7 @@ export const Rating = ({ ratingCount }: { ratingCount: number }) => {
 
         return (
           <button
+            aria-label="star rating"
             type="button"
             key={index}
             className={style.button}

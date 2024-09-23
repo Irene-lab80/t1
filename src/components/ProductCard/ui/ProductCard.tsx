@@ -55,7 +55,11 @@ export const ProductCard = ({
           </div>
         ) : (
           <div ref={buttonWrapperRef}>
-            <Button onClick={() => setCount(count + 1)} variant="icon">
+            <Button
+              aria-label="add to cart"
+              onClick={() => setCount(count + 1)}
+              variant="icon"
+            >
               <CartIcon />
             </Button>
           </div>

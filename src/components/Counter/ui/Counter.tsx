@@ -11,11 +11,19 @@ interface IProps {
 
 export const Counter = ({ count, setCount }: IProps) => (
   <div className={style.wrapper}>
-    <Button variant="icon" onClick={() => setCount(count - 1)}>
+    <Button
+      aria-label="minus"
+      variant="icon"
+      onClick={() => setCount(count - 1)}
+    >
       <MinusIcon />
     </Button>
     <div className={style.text}>{pluralize(count, "item")}</div>
-    <Button variant="icon" onClick={() => setCount(count + 1)}>
+    <Button
+      aria-label="plus"
+      variant="icon"
+      onClick={() => setCount(count + 1)}
+    >
       <PlusIcon />
     </Button>
   </div>

@@ -2,9 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Loader } from "@/components";
 import { ChangeEvent, useState } from "react";
 import { useGetProductsQuery } from "@/app/store/products/products";
-
 import useDebounce from "@/hooks/useDebounce";
-
 import { mock_faq } from "@/mock/mock_faq";
 import { Catalog, Faq, Hero } from "../HomeComponents";
 
