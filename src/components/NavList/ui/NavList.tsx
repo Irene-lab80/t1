@@ -6,7 +6,7 @@ interface IProps {
   className?: string;
 }
 
-export const NavList = ({ children, className }: IProps): JSX.Element => {
+export const NavList = ({ children, className = "" }: IProps): JSX.Element => {
   return (
     <nav>
       <ul className={`${style.navList} ${className}`}>{children}</ul>

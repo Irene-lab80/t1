@@ -8,7 +8,7 @@ import style from "./Cart.module.css";
 export const Cart = (): JSX.Element => {
   const { data, status } = useAppSelector((state) => state.cartReducer);
 
-  const cart = data?.carts[0];
+  const cart = data?.carts ? data?.carts[0] : null;
 
   return (
     <main className={style.main}>

@@ -4,3 +4,11 @@ export const pluralize = (count: number, noun: string, suffix = "s") =>
 export const calculateDiscountedPrice = (price: number, discount: number) => {
   return +(price - (price * discount) / 100).toFixed(2);
 };
+
+export const wait = (time: number) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+};
+
+export const login_duration = 60000;

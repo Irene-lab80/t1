@@ -1,8 +1,7 @@
 import { NavList, CartCounter } from "@/components";
 import { useEffect, useRef, useState } from "react";
 import { BurgerMenuIcon } from "@/shared/icons";
-
-import { ROUTES } from "@/app/routes";
+import { ROUTES } from "@/app/router/routes";
 
 import style from "./MobileNav.module.css";
 

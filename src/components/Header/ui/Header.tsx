@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import { NavList } from "../../NavList";
 import { CartCounter } from "../../CartCounter";
-import { ROUTES } from "@/app/routes";
+import { ROUTES } from "@/app/router/routes";
 import { MobileNav } from "@/components";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import style from "./Header.module.css";
 
 export const Header = ({
   count,
   path,
+  userName,
 }: {
   path: string;
   count: number | undefined;
+  userName: string | null;
 }): JSX.Element => (
   <div className={style.wrapper}>
     <header className={style.header}>
@@ -30,7 +33,13 @@ export const Header = ({
             <NavList.Item link={ROUTES.CART}>
               <CartCounter count={count} />
             </NavList.Item>
-            <NavList.Item>Johnson Smith</NavList.Item>
+            <NavList.Item>
+              {/* {isLoading ? (
+                <Skeleton className={style.skeleton} />
+              ) : ( */}
+              <span className={style.userName}>{userName}</span>
+              {/* )} */}
+            </NavList.Item>
           </NavList>
         </div>
       </div>

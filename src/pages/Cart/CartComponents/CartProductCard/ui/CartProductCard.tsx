@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button, Counter } from "@/components";
 import { CartIcon } from "@/shared/icons";
-import { ROUTES } from "@/app/routes";
+import { ROUTES } from "@/app/router/routes";
 
 import { Product } from "@/app/store/cart/types";
 import { calculateDiscountedPrice } from "@/utils/helpers";

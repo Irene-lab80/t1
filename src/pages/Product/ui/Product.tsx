@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { ROUTES } from "@/app/routes";
+import { ROUTES } from "@/app/router/routes";
 import { Helmet } from "react-helmet-async";
 import { Gallery, Info } from "../ProductComponents";
 import { useGetProductByIdQuery } from "@/app/store/products/products";
