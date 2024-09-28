@@ -2,7 +2,8 @@ export const endpoints = {
   searchProducts: "/auth/products/search",
   products: "/auth/products",
   cart: "/auth/carts/user",
-  login: '/auth/login',
+  carts: "/auth/carts",
+  login: "/auth/login",
   me: "/auth/me",
 };
 

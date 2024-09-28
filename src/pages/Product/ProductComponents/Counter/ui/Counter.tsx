@@ -6,24 +6,17 @@ import style from "./Counter.module.css";
 
 interface IProps {
   count: number;
-  setCount: (count: number) => void;
+  onRemove: () => void;
+  onAdd: () => void;
 }
 
-export const Counter = ({ count, setCount }: IProps) => (
+export const Counter = ({ count, onAdd, onRemove }: IProps) => (
   <div className={style.wrapper}>
-    <Button
-      aria-label="minus"
-      variant="icon"
-      onClick={() => setCount(count - 1)}
-    >
+    <Button aria-label="minus" variant="icon" onClick={onRemove}>
       <BigMinusIcon />
     </Button>
     <div className={style.text}>{pluralize(count, "item")}</div>
-    <Button
-      aria-label="plus"
-      variant="icon"
-      onClick={() => setCount(count + 1)}
-    >
+    <Button aria-label="plus" variant="icon" onClick={onAdd}>
       <BigPlusIcon />
     </Button>
   </div>

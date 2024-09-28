@@ -32,7 +32,7 @@ export const Login = (): JSX.Element => {
     const response = await loginUser({
       username: data.login,
       password: data.password,
-      expiresInMins: 1,
+      expiresInMins: 10,
     }).unwrap();
 
     if (response.accessToken) {
@@ -45,6 +45,7 @@ export const Login = (): JSX.Element => {
             firstName: userData.firstName,
             lastName: userData.lastName,
             access_token: response.accessToken,
+            id: response.id,
           })
         );
         toast.success("Successful!");

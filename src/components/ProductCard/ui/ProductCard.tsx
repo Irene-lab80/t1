@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { CartIcon } from "@/shared/icons";
 import { IProduct } from "@/utils/types";
 import { Button } from "../../Button";
@@ -8,6 +8,7 @@ import { Counter } from "../../Counter";
 import style from "./ProductCard.module.css";
 interface IProps extends IProduct {
   initialCount: number;
+  handleUpdateCart: (id: number, q: number) => void;
 }
 
 export const ProductCard = ({
@@ -16,9 +17,8 @@ export const ProductCard = ({
   price,
   id,
   initialCount,
+  handleUpdateCart,
 }: IProps) => {
-  const [count, setCount] = useState(initialCount);
-
   const buttonWrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -26,6 +26,8 @@ export const ProductCard = ({
       navigate(`/product/${id}`);
     }
   };
+  console.log("id", id);
+  console.log("initialCount", initialCount);
 
   return (
     <div
@@ -40,24 +42,35 @@ export const ProductCard = ({
           <span className={style.overlayText}>Show details</span>
         </div>
       </div>
-      <div className={`${style.footer} ${count >= 1 ? style.footerShort : ""}`}>
+      <div
+        className={`${style.footer} ${
+          initialCount >= 1 ? style.footerShort : ""
+        }`}
+      >
         <div>
           <h2
-            className={`${style.title} ${count >= 1 ? style.titleShort : ""}`}
+            className={`${style.title} ${
+              initialCount >= 1 ? style.titleShort : ""
+            }`}
           >
             {name}
           </h2>
           <div className={style.price}>${price}</div>
         </div>
-        {count >= 1 ? (
+        {initialCount >= 1 ? (
           <div className={style.counterWrapper} ref={buttonWrapperRef}>
-            <Counter count={count} setCount={setCount} />
+            <Counter
+              count={initialCount}
+              onAdd={() => handleUpdateCart(id, initialCount + 1)}
+              onRemove={() => handleUpdateCart(id, initialCount - 1)}
+              isLoading={false}
+            />
           </div>
         ) : (
           <div ref={buttonWrapperRef}>
             <Button
               aria-label="add to cart"
-              onClick={() => setCount(count + 1)}
+              onClick={() => handleUpdateCart(id, initialCount + 1)}
               variant="icon"
             >
               <CartIcon />

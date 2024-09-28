@@ -11,10 +11,9 @@ export const UserProvider = ({
   const dispatch = useAppDispatch();
   const { access_token } = useAppSelector((state) => state.userReducer);
 
-  console.log("access_token pollingInterval", access_token);
   const { data: userData, error } = useGetUserQuery(undefined, {
     skip: !access_token,
-    pollingInterval: 60000,
+    pollingInterval: 60000,// 1 minute
   });
 
   useEffect(() => {
@@ -23,14 +22,14 @@ export const UserProvider = ({
         userActions.setUser({
           firstName: userData.firstName,
           lastName: userData.lastName,
+          id: userData.id,
         })
       );
     }
   }, [userData, dispatch, access_token]);
-
+ 
   useEffect(() => {
-    // @ts-expect-error trere
-    if (error?.status === 401) {
+    if (error && "status" in error && error?.status === 401) {
       localStorage.removeItem("access_token");
       dispatch(userActions.resetUser());
     }

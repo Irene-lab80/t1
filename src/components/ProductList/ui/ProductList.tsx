@@ -9,9 +9,10 @@ import style from "./ProductList.module.css";
 
 interface IProps {
   products: Product[];
+  handleUpdateCart: (id: number, q: number) => void;
 }
 
-export const ProductList = ({ products }: IProps) => {
+export const ProductList = ({ products, handleUpdateCart }: IProps) => {
   const getProductCount = useGetProductCountInCart();
 
   return (
@@ -28,6 +29,7 @@ export const ProductList = ({ products }: IProps) => {
             key={product.id}
             id={product.id}
             initialCount={getProductCount(product.id)}
+            handleUpdateCart={handleUpdateCart}
           />
         ))}
       </div>

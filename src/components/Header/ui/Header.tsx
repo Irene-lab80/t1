@@ -3,7 +3,6 @@ import { NavList } from "../../NavList";
 import { CartCounter } from "../../CartCounter";
 import { ROUTES } from "@/app/router/routes";
 import { MobileNav } from "@/components";
-import "react-loading-skeleton/dist/skeleton.css";
 
 import style from "./Header.module.css";
 
@@ -34,11 +33,7 @@ export const Header = ({
               <CartCounter count={count} />
             </NavList.Item>
             <NavList.Item>
-              {/* {isLoading ? (
-                <Skeleton className={style.skeleton} />
-              ) : ( */}
               <span className={style.userName}>{userName}</span>
-              {/* )} */}
             </NavList.Item>
           </NavList>
         </div>

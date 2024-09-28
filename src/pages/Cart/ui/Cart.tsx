@@ -1,14 +1,39 @@
 import { Loader, NoItems, Title } from "@/components";
 import { CartInfo, CartProducts } from "../CartComponents";
 import { Helmet } from "react-helmet-async";
-import { useAppSelector } from "@/app/store/store";
+import { useAppDispatch, useAppSelector } from "@/app/store/store";
+import { updateCart } from "@/app/store/cart/cart";
 
 import style from "./Cart.module.css";
+import { useState } from "react";
+import { getNewProducts } from "@/utils/helpers";
+
+export type IProducts = {
+  id: number;
+  quantity: number;
+}[];
 
 export const Cart = (): JSX.Element => {
-  const { data, status } = useAppSelector((state) => state.cartReducer);
+  const [currrentId, setCurrentId] = useState<number | null>(null);
 
-  const cart = data?.carts ? data?.carts[0] : null;
+  const { cart, status } = useAppSelector((state) => state.cartReducer);
+  const dispatch = useAppDispatch();
+
+  const handleUpdateCart = (id: number, q: number) => {
+    setCurrentId(id);
+
+    if (cart?.id) {
+      dispatch(
+        updateCart({
+          cart_id: cart?.id,
+          payload: {
+            merge: false,
+            products: getNewProducts(cart, id, q),
+          },
+        })
+      );
+    }
+  };
 
   return (
     <main className={style.main}>
@@ -24,7 +49,12 @@ export const Cart = (): JSX.Element => {
         <Title>My cart</Title>
         {cart && (
           <div className={style.info}>
-            <CartProducts products={cart.products} />
+            <CartProducts
+              products={cart.products}
+              handleUpdateCart={handleUpdateCart}
+              isLoading={status === "loading"}
+              currrentId={currrentId}
+            />
             <CartInfo
               count={cart.totalProducts}
               no_discount_price={cart.total}

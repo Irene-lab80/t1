@@ -7,13 +7,15 @@ import { useAppSelector } from "@/app/store/store";
 import style from "./Layout.module.css";
 
 export const Layout = (): JSX.Element => {
-  const { data } = useAppSelector((state) => state.cartReducer);
+  const { cart } = useAppSelector((state) => state.cartReducer);
   const { firstName, lastName } = useAppSelector((state) => state.userReducer);
 
   const path = useLocation().pathname;
 
-  const cart = data?.carts ? data?.carts[0] : null;
-  const count = cart ? cart.totalProducts : 0;
+  const count = cart
+    ? cart.products.filter((product) => product.quantity !== 0).length
+    : 0;
+
   const userName = firstName && lastName ? `${firstName} ${lastName}` : "";
 
   return (

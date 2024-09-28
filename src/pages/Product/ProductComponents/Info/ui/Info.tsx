@@ -18,6 +18,8 @@ interface IProps {
   discount: number;
   price: number;
   inCartCount: number;
+  handleUpdateCart: (id: number, q: number) => void;
+  id: number;
 }
 
 export const Info = ({
@@ -32,6 +34,8 @@ export const Info = ({
   discount,
   price,
   inCartCount,
+  handleUpdateCart,
+  id,
 }: IProps) => {
   return (
     <div className={style.info}>
@@ -59,6 +63,9 @@ export const Info = ({
           oldPrice={old_price}
           discount={discount}
           newPrice={price}
+          handleUpdateCart={handleUpdateCart}
+          id={id}
+          available_count={available_count}
         />
       </div>
     </div>
