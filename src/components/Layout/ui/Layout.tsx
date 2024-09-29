@@ -13,7 +13,7 @@ export const Layout = (): JSX.Element => {
   const path = useLocation().pathname;
 
   const count = cart
-    ? cart.products.filter((product) => product.quantity !== 0).length
+    ? cart.totalQuantity
     : 0;
 
   const userName = firstName && lastName ? `${firstName} ${lastName}` : "";

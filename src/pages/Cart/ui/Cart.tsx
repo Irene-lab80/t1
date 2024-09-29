@@ -62,9 +62,7 @@ export const Cart = (): JSX.Element => {
             />
           </div>
         )}
-        {((cart && !Object.keys(cart).length) || !cart) && (
-          <NoItems>No items</NoItems>
-        )}
+        {cart && !Object.keys(cart).length && <NoItems>No items</NoItems>}
       </section>
     </main>
   );
