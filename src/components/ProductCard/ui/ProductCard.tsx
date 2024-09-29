@@ -6,9 +6,11 @@ import { Button } from "../../Button";
 import { Counter } from "../../Counter";
 
 import style from "./ProductCard.module.css";
+import { toast } from "react-toastify";
 interface IProps extends IProduct {
   initialCount: number;
   handleUpdateCart: (id: number, q: number) => void;
+  available_count: number;
 }
 
 export const ProductCard = ({
@@ -18,6 +20,7 @@ export const ProductCard = ({
   id,
   initialCount,
   handleUpdateCart,
+  available_count,
 }: IProps) => {
   const buttonWrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -26,8 +29,6 @@ export const ProductCard = ({
       navigate(`/product/${id}`);
     }
   };
-  console.log("id", id);
-  console.log("initialCount", initialCount);
 
   return (
     <div
@@ -61,7 +62,13 @@ export const ProductCard = ({
           <div className={style.counterWrapper} ref={buttonWrapperRef}>
             <Counter
               count={initialCount}
-              onAdd={() => handleUpdateCart(id, initialCount + 1)}
+              onAdd={() => {
+                if (available_count === initialCount) {
+                  toast.error("No more product left");
+                } else {
+                  handleUpdateCart(id, initialCount + 1);
+                }
+              }}
               onRemove={() => handleUpdateCart(id, initialCount - 1)}
               isLoading={false}
             />

@@ -1,5 +1,5 @@
 import { BigMinusIcon, BigPlusIcon } from "@/shared/icons";
-import { pluralize } from "@/utils/helpers";
+import { pluralize } from "@/utils";
 import { Button } from "@/components/Button";
 
 import style from "./Counter.module.css";

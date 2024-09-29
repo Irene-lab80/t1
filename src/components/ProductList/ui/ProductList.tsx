@@ -1,7 +1,7 @@
 import { Product } from "@/app/store/products/types";
 import { ProductCard } from "../../ProductCard";
 
-import { calculateDiscountedPrice } from "@/utils/helpers";
+import { calculateDiscountedPrice } from "@/utils";
 import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 import { NoItems } from "@/components/NoItems";
 
@@ -12,26 +12,32 @@ interface IProps {
   handleUpdateCart: (id: number, q: number) => void;
 }
 
-export const ProductList = ({ products, handleUpdateCart }: IProps) => {
+export const ProductList = ({
+  products,
+  handleUpdateCart,
+}: IProps) => {
   const getProductCount = useGetProductCountInCart();
 
   return (
     <>
       <div className={style.productsList}>
-        {products.map((product) => (
-          <ProductCard
-            image={product.thumbnail}
-            name={product.title}
-            price={calculateDiscountedPrice(
-              product.price,
-              product.discountPercentage
-            )}
-            key={product.id}
-            id={product.id}
-            initialCount={getProductCount(product.id)}
-            handleUpdateCart={handleUpdateCart}
-          />
-        ))}
+        {products.map((product) => {
+          return (
+            <ProductCard
+              image={product.thumbnail}
+              name={product.title}
+              price={calculateDiscountedPrice(
+                product.price,
+                product.discountPercentage
+              )}
+              key={product.id}
+              id={product.id}
+              initialCount={getProductCount(product.id)}
+              handleUpdateCart={handleUpdateCart}
+              available_count={product.stock}
+            />
+          );
+        })}
       </div>
       {!products?.length && <NoItems>Not found</NoItems>}
     </>

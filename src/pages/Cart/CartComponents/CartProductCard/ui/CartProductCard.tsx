@@ -3,7 +3,7 @@ import { Button, Counter } from "@/components";
 import { CartIcon } from "@/shared/icons";
 import { ROUTES } from "@/app/router/routes";
 import { Product } from "@/app/store/cart/types";
-import { calculateDiscountedPrice } from "@/utils/helpers";
+import { calculateDiscountedPrice } from "@/utils";
 
 import style from "./CartProductCard.module.css";
 

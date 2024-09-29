@@ -6,13 +6,14 @@ import { Helmet } from "react-helmet-async";
 import { Gallery, Info } from "../ProductComponents";
 import { useGetProductByIdQuery } from "@/app/store/products/products";
 import { Loader } from "@/components";
-import { calculateDiscountedPrice, getNewProducts } from "@/utils/helpers";
+import { calculateDiscountedPrice } from "@/utils";
 import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 
 import { useAppDispatch, useAppSelector } from "@/app/store/store";
 import { updateCart } from "@/app/store/cart/cart";
 
 import style from "./Product.module.css";
+import { getNewProducts } from "@/utils/helpers";
 
 export const Product = (): JSX.Element => {
   const { id } = useParams();

@@ -21,11 +21,19 @@ export const Button = ({
   return (
     <>
       {link ? (
-        <a href={link} className={`${style.button} ${buttonType["link"]}`}>
+        <a
+          data-testid="button"
+          href={link}
+          className={`${style.button} ${buttonType["link"]}`}
+        >
           {children}
         </a>
       ) : (
-        <button className={`${style.button} ${buttonType[variant]}`} {...props}>
+        <button
+          data-testid="button"
+          className={`${style.button} ${buttonType[variant]}`}
+          {...props}
+        >
           {children}
         </button>
       )}
