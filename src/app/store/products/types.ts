@@ -9,7 +9,7 @@ export interface Product {
   id: number;
   title: string;
   description: string;
-  category: Category;
+  category: Category | string;
   price: number;
   discountPercentage: number;
   rating: number;
@@ -21,7 +21,7 @@ export interface Product {
   dimensions: Dimensions;
   warrantyInformation: string;
   shippingInformation: string;
-  availabilityStatus: AvailabilityStatus;
+  availabilityStatus: AvailabilityStatus | string;
   reviews: Review[];
   returnPolicy: string;
   minimumOrderQuantity: number;
@@ -48,8 +48,8 @@ export interface Dimensions {
 }
 
 export interface Meta {
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: Date | string;
+  updatedAt: Date | string;
   barcode: string;
   qrCode: string;
 }
@@ -57,7 +57,7 @@ export interface Meta {
 export interface Review {
   rating: number;
   comment: string;
-  date: Date;
+  date: Date | string;
   reviewerName: string;
   reviewerEmail: string;
 }

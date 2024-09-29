@@ -10,6 +10,7 @@ interface IProps {
   inputValue: string;
   showMoreHandler: () => void;
   handleUpdateCart: (id: number, q: number) => void;
+  getProductCount: (id: number) => number;
 }
 
 export const Catalog = ({
@@ -18,6 +19,7 @@ export const Catalog = ({
   inputValue,
   showMoreHandler,
   handleUpdateCart,
+  getProductCount,
 }: IProps) => (
   <section className={style.content}>
     <h3 className={style.title} id="catalog">
@@ -39,6 +41,7 @@ export const Catalog = ({
           <ProductList
             products={data.products}
             handleUpdateCart={handleUpdateCart}
+            getProductCount={getProductCount}
           />
         </div>
         <div className={style.buttonWrapper}>

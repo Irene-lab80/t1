@@ -2,7 +2,6 @@ import { Product } from "@/app/store/products/types";
 import { ProductCard } from "../../ProductCard";
 
 import { calculateDiscountedPrice } from "@/utils";
-import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 import { NoItems } from "@/components/NoItems";
 
 import style from "./ProductList.module.css";
@@ -10,14 +9,14 @@ import style from "./ProductList.module.css";
 interface IProps {
   products: Product[];
   handleUpdateCart: (id: number, q: number) => void;
+  getProductCount: (id: number) => number;
 }
 
 export const ProductList = ({
   products,
   handleUpdateCart,
+  getProductCount,
 }: IProps) => {
-  const getProductCount = useGetProductCountInCart();
-
   return (
     <>
       <div className={style.productsList}>

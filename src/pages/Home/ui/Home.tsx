@@ -11,14 +11,17 @@ import { updateCart } from "@/app/store/cart/cart";
 import { useAppDispatch, useAppSelector } from "@/app/store/store";
 
 import style from "./Home.module.css";
+import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 
 export const Home = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
   const [inputValue, setInputValue] = useState("");
-  const debouncedSearchTerm = useDebounce(inputValue, 500);
 
-  const { cart, status } = useAppSelector((state) => state.cartReducer);
   const dispatch = useAppDispatch();
+  const { cart, status } = useAppSelector((state) => state.cartReducer);
+
+  const debouncedSearchTerm = useDebounce(inputValue, 500);
+  const getProductCount = useGetProductCountInCart();
 
   const handleUpdateCart = (id: number, q: number) => {
     if (cart?.id) {
@@ -64,6 +67,7 @@ export const Home = (): JSX.Element => {
         inputValue={inputValue}
         showMoreHandler={showMoreHandler}
         handleUpdateCart={handleUpdateCart}
+        getProductCount={getProductCount}
       />
       <Faq mock_faq={mock_faq} />
     </main>
