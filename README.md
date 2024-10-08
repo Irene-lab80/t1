@@ -10,7 +10,7 @@ An app created with React/Redux/TypeScript
 * [Setup](#setup)
 
 ## General info
-This training project is a simple ad service website. Created for Open School for JS+React Developers.
+This training project is an online shop website. Created for Open School for JS+React Developers.
 
 ## Technologies
 Project is created with:
