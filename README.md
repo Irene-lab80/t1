@@ -21,7 +21,7 @@ Project is created with:
 
 Backend: [dummyjson](https://dummyjson.com/)
 
-[Technical requirements]([https://dummyjson.com/](https://www.figma.com/design/gsRFvWJ8Xlz9DPO2LZkMqn/8_tasks_JS_React?node-id=0-1&node-type=CANVAS&t=vay87axT3sdjle3k-0))
+[Technical requirements](https://www.figma.com/design/gsRFvWJ8Xlz9DPO2LZkMqn/8_tasks_JS_React?node-id=0-1&node-type=CANVAS&t=vay87axT3sdjle3k-0)
 
 **Credentials you can use to login:**
 
