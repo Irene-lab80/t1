@@ -1,21 +1,33 @@
 import { MinusIcon, PlusIcon } from "@/shared/icons";
-import { pluralize } from "@/utils/helpers";
+import { pluralize } from "@/utils";
 import { Button } from "../../Button";
 
 import style from "./Counter.module.css";
 
 interface IProps {
   count: number;
-  setCount: (count: number) => void;
+  onAdd: () => void;
+  onRemove: () => void;
+  isLoading: boolean;
 }
 
-export const Counter = ({ count, setCount }: IProps) => (
+export const Counter = ({ count, onAdd, onRemove, isLoading }: IProps) => (
   <div className={style.wrapper}>
-    <Button variant="icon" onClick={() => setCount(count - 1)}>
+    <Button
+      disabled={isLoading}
+      aria-label="minus"
+      variant="icon"
+      onClick={onRemove}
+    >
       <MinusIcon />
     </Button>
     <div className={style.text}>{pluralize(count, "item")}</div>
-    <Button variant="icon" onClick={() => setCount(count + 1)}>
+    <Button
+      disabled={isLoading}
+      aria-label="plus"
+      variant="icon"
+      onClick={onAdd}
+    >
       <PlusIcon />
     </Button>
   </div>

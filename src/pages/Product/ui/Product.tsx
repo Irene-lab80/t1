@@ -1,21 +1,44 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { ROUTES } from "@/app/routes";
+import { ROUTES } from "@/app/router/routes";
 import { Helmet } from "react-helmet-async";
 import { Gallery, Info } from "../ProductComponents";
 import { useGetProductByIdQuery } from "@/app/store/products/products";
 import { Loader } from "@/components";
-import { calculateDiscountedPrice } from "@/utils/helpers";
+import { calculateDiscountedPrice } from "@/utils";
 import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
 
+import { useAppDispatch, useAppSelector } from "@/app/store/store";
+import { updateCart } from "@/app/store/cart/cart";
+
 import style from "./Product.module.css";
+import { getNewProducts } from "@/utils/helpers";
 
 export const Product = (): JSX.Element => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const getProductCount = useGetProductCountInCart();
+
+  const inCartCount = id ? getProductCount(+id) : 0;
+
+  const { cart, status } = useAppSelector((state) => state.cartReducer);
+  const dispatch = useAppDispatch();
+
+  const handleUpdateCart = (id: number, q: number) => {
+    if (cart?.id) {
+      dispatch(
+        updateCart({
+          cart_id: cart?.id,
+          payload: {
+            merge: false,
+            products: getNewProducts(cart, id, q),
+          },
+        })
+      );
+    }
+  };
 
   const {
     data: product,
@@ -30,11 +53,9 @@ export const Product = (): JSX.Element => {
     }
   }, [error, navigate]);
 
-  const inCartCount = id ? getProductCount(+id) : 0;
-
   return (
     <main className={style.main}>
-      {(isLoading || isFetching) && <Loader />}
+      {(isLoading || isFetching || status === "loading") && <Loader />}
       <Helmet>
         <title>Essence Mascara Lash Princess | Goods4you</title>
         <meta
@@ -60,6 +81,8 @@ export const Product = (): JSX.Element => {
             tags={product.tags.map((tag, i) => ({ id: i + 1, name: tag }))}
             warranty_duration={product.warrantyInformation}
             inCartCount={inCartCount}
+            handleUpdateCart={handleUpdateCart}
+            id={product.id}
           />
         </section>
       )}

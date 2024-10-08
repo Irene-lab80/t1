@@ -1,2 +1,2 @@
-export { router } from "./router";
+export { router } from "./router/router";
 export { store } from "./store";

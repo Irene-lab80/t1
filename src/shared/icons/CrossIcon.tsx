@@ -1,5 +1,6 @@
 export const CrossIcon = ({ className }: { className?: string }) => (
   <svg
+    aria-hidden={true}
     className={className}
     width="25"
     height="26"

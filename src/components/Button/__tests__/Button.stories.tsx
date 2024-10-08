@@ -2,7 +2,7 @@ import { CartIcon } from "../../../shared/icons/CartIcon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
-import { Button } from "./Button";
+import { Button } from "../ui/Button";
 
 const meta = {
   title: "Atoms/Button",

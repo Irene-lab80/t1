@@ -5,9 +5,28 @@ export const tags = {
   products: "products",
 };
 
+const fetchQuery = fetchBaseQuery({
+  baseUrl: API_URL,
+  prepareHeaders: (headers, { getState }) => {
+    const access_token = localStorage.getItem("access_token");
+
+    if (access_token) {
+      headers.set("authorization", `Bearer ${access_token}`);
+    }
+
+    // const token = getState().userReducer.access_token    ;
+    // console.log("token", token);
+    // if (token) {
+    //  // include token in req header
+    //   headers.set('authorization', `Bearer ${token}`)
+    //   return headers
+    // }
+  },
+});
+
 export const mainApi = createApi({
   reducerPath: "mainApi",
-  baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
+  baseQuery: fetchQuery,
   endpoints: () => ({}),
   tagTypes: Object.keys(tags),
 });

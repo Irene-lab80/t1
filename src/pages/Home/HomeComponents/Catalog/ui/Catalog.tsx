@@ -1,4 +1,4 @@
-import { Button, ProductList, SearchInput } from "@/components";
+import { Button, ProductList, Input } from "@/components";
 import { IResponseProducts } from "@/app/store/products/types";
 import { ChangeEvent } from "react";
 
@@ -9,6 +9,8 @@ interface IProps {
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
   inputValue: string;
   showMoreHandler: () => void;
+  handleUpdateCart: (id: number, q: number) => void;
+  getProductCount: (id: number) => number;
 }
 
 export const Catalog = ({
@@ -16,13 +18,15 @@ export const Catalog = ({
   handleInputChange,
   inputValue,
   showMoreHandler,
+  handleUpdateCart,
+  getProductCount,
 }: IProps) => (
   <section className={style.content}>
     <h3 className={style.title} id="catalog">
       Catalog
     </h3>
     <div className={style.search}>
-      <SearchInput
+      <Input
         type="search"
         name="search"
         id="search"
@@ -34,7 +38,11 @@ export const Catalog = ({
     {data && (
       <>
         <div className={style.products}>
-          <ProductList products={data.products} />
+          <ProductList
+            products={data.products}
+            handleUpdateCart={handleUpdateCart}
+            getProductCount={getProductCount}
+          />
         </div>
         <div className={style.buttonWrapper}>
           {data?.total !== data?.products.length && (

@@ -1,5 +1,5 @@
 import { getCart } from "@/app/store/cart/cart";
-import { useAppDispatch } from "@/app/store/store";
+import { useAppDispatch, useAppSelector } from "@/app/store/store";
 import { ReactNode, useEffect } from "react";
 
 export const CartProvider = ({
@@ -8,11 +8,14 @@ export const CartProvider = ({
   children: ReactNode;
 }): JSX.Element => {
   const dispatch = useAppDispatch();
-  const cart_id = 6;
+
+  const { id: user_id } = useAppSelector((state) => state.userReducer);
 
   useEffect(() => {
-    dispatch(getCart(cart_id));
-  }, [dispatch]);
+    if (user_id) {
+      dispatch(getCart(user_id));
+    }
+  }, [dispatch, user_id]);
 
   return <>{children}</>;
 };

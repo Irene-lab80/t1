@@ -1,4 +1,4 @@
-import { pluralize } from "@/utils/helpers";
+import { pluralize } from "@/utils";
 import style from "./CartInfo.module.css";
 
 interface IProps {
@@ -21,7 +21,7 @@ export const CartInfo = ({
 
       <div className={`${style.row} ${style.withoutDiscountRow}`}>
         <div className={style.title}>Price without discount</div>
-        <div className={style.value}>${no_discount_price}</div>
+        <div className={style.value}>${no_discount_price.toFixed(2)}</div>
       </div>
 
       <div className={style.separator} />
