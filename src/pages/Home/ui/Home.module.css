@@ -1,0 +1,67 @@
+.main {
+  flex: 1;
+}
+
+.content {
+  max-width: var(--width-content);
+  margin: auto;
+
+  @media (max-width: 1250px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 0 16px;
+  }
+}
+
+.title {
+  font-size: 36px;
+  line-height: 56px;
+  font-weight: var(--bold);
+  color: var(--gray-900);
+}
+
+.search {
+  margin-top: 48px;
+}
+
+.products {
+  margin-top: 48px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 48px;
+}
+
+.faq {
+  background: var(--violet);
+  margin-top: 48px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .title {
+    color: var(--white);
+  }
+
+  @media (max-width: 1250px) {
+    padding: 24px;
+  }
+
+  @media (max-width: 964px) {
+    padding: 16px;
+  }
+}
+
+.faqInner {
+  color: var(--white);
+  max-width: 880px;
+  margin: auto;
+}
+
+.faqList {
+  margin-top: 20px;
+}

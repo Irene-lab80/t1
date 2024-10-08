@@ -1,0 +1,18 @@
+import { ICartProduct } from "@/utils/types";
+import { CartProductCard } from "../../CartProductCard";
+
+import style from "./CartProducts.module.css";
+
+interface IProps {
+  products: ICartProduct[];
+}
+
+export const CartProducts = ({ products }: IProps) => {
+  return (
+    <div className={style.wrapper}>
+      {products.map((product) => (
+        <CartProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+};

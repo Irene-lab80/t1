@@ -1,0 +1,56 @@
+@import './variables.css';
+@import './normalize.css';
+@import './fonts.css';
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Jost, system-ui, Helvetica, Arial, sans-serif;
+  font-weight: var(--regular);
+  color: var(--gray-900);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+body>div {
+  height: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}

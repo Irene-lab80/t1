@@ -1,0 +1,48 @@
+.info {
+  width: 100%;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 18px;
+}
+
+.title {
+  color: var(--gray-900);
+}
+
+.ratingWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.availibleWrapper {
+  padding: 12px 0;
+  border-top: 1px solid var(--gray-500);
+  border-bottom: 1px solid var(--gray-500);
+  color: var(--orange);
+  font-weight: var(--normal);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.description {
+  font-weight: var(--regular);
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.warranty {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--gray-600);
+  line-height: 24px;
+}

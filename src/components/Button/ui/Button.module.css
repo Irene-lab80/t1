@@ -1,0 +1,42 @@
+.button {
+  background-color: var(--orange);
+  color: var(--white);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  will-change: background-color;
+  font-size: 16px;
+  font-weight: var(--regular);
+}
+
+.button:hover {
+  background-color: var(--orange-dark);
+  transition: all 0.3s ease-in;
+}
+
+.button:disabled {
+  background: var(--orange-white);
+}
+
+.default {
+  padding: 20px 50px;
+  line-height: 22px;
+}
+
+.icon {
+  padding: 16px;
+  line-height: 0;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.link {
+  display: flex;
+  width: fit-content;
+  padding: 20px 50px;
+  line-height: 22px;
+  text-decoration: none;
+}
