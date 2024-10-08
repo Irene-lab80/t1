@@ -23,9 +23,10 @@ export const Default: Story = {
     initialCount: 0,
     name: "Essence Mascara Lash Princess",
     price: 1,
+    available_count: 1,
+    handleUpdateCart: () => {},
   },
 };
-
 
 export const Multiple: Story = {
   args: {
@@ -34,5 +35,7 @@ export const Multiple: Story = {
     initialCount: 10,
     name: "Essence Mascara Lash Princess",
     price: 1,
+    available_count: 1,
+    handleUpdateCart: () => {},
   },
 };

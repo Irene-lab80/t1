@@ -1,5 +1,5 @@
-import { Button } from "@/components";
 
+import { Button } from "@/components";
 import style from "./Hero.module.css";
 
 export const Hero = () => (

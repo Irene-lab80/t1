@@ -18,13 +18,17 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     count: 0,
-    setCount: () => null,
+    onAdd: () => null,
+    onRemove: () => null,
+    isLoading: false,
   },
 };
 
 export const Multiple: Story = {
   args: {
     count: 12,
-    setCount: () => null,
+    onAdd: () => null,
+    onRemove: () => null,
+    isLoading: false,
   },
 };

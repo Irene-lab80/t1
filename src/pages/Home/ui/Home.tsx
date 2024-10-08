@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { Loader } from "@/components";
 import { ChangeEvent, useState } from "react";
 import { useGetProductsQuery } from "@/app/store/products/products";
 import useDebounce from "@/hooks/useDebounce";
@@ -12,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "@/app/store/store";
 
 import style from "./Home.module.css";
 import { useGetProductCountInCart } from "@/hooks/useGetProductCountInCart";
+import { Loader } from "@/components";
 
 export const Home = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
