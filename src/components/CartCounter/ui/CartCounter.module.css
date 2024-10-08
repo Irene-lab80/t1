@@ -2,12 +2,12 @@
   display: flex;
   gap: 6px;
   align-items: center;
+  color: var(--white);
 }
 
 .cartIconWrapper {
   position: relative;
 }
-
 
 .countWrapper {
   position: absolute;

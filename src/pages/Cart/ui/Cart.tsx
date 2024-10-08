@@ -1,16 +1,18 @@
-import { Title } from "@/components";
+import { Loader, NoItems, Title } from "@/components";
 import { CartInfo, CartProducts } from "../CartComponents";
-import { mock_cart_data } from "./data";
 import { Helmet } from "react-helmet-async";
+import { useAppSelector } from "@/app/store/store";
 
 import style from "./Cart.module.css";
 
 export const Cart = (): JSX.Element => {
-  const { products, total_count, no_discount_price, total_price } =
-    mock_cart_data;
+  const { data, status } = useAppSelector((state) => state.cartReducer);
+
+  const cart = data?.carts[0];
 
   return (
     <main className={style.main}>
+      {status === "loading" && <Loader />}
       <Helmet>
         <title>My cart | Goods4you</title>
         <meta
@@ -20,14 +22,17 @@ export const Cart = (): JSX.Element => {
       </Helmet>
       <section className={style.content}>
         <Title>My cart</Title>
-        <div className={style.info}>
-          <CartProducts products={products} />
-          <CartInfo
-            count={total_count}
-            no_discount_price={no_discount_price}
-            price={total_price}
-          />
-        </div>
+        {cart && (
+          <div className={style.info}>
+            <CartProducts products={cart.products} />
+            <CartInfo
+              count={cart.totalProducts}
+              no_discount_price={cart.total}
+              discounted_price={cart.discountedTotal}
+            />
+          </div>
+        )}
+        {cart && !Object.keys(cart).length && <NoItems>No items</NoItems>}
       </section>
     </main>
   );

@@ -14,9 +14,22 @@
   align-items: center;
   gap: 24px;
   padding: 0 20px;
-  
+
   @media (max-width: 800px) {
     padding: 0;
+  }
+
+  @media (max-width:400px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.pricesWrapper {
+  @media (max-width:400px) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }
 

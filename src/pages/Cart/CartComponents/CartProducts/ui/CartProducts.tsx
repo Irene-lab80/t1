@@ -1,10 +1,10 @@
-import { ICartProduct } from "@/utils/types";
 import { CartProductCard } from "../../CartProductCard";
 
 import style from "./CartProducts.module.css";
+import { Product } from "@/app/store/cart/types";
 
 interface IProps {
-  products: ICartProduct[];
+  products: Product[];
 }
 
 export const CartProducts = ({ products }: IProps) => {
