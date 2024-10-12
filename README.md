@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+Deploy: [https://application-r88w.vercel.app/](https://t1-id20r8iu2-irenelab80s-projects.vercel.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Goods4you
+An app created with React/Redux/TypeScript
 
-Currently, two official plugins are available:
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Features](#features)
+* [Setup](#setup)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## General info
+This training project is an online shop website. Created for Open School for JS+React Developers.
 
-## Expanding the ESLint configuration
+## Technologies
+Project is created with:
+* React: v18.3.1
+* TypeScript: v5.5.3
+* Redux Toolkit v2.2.7
+* React-router-dom: v6.26.2
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Backend: [dummyjson](https://dummyjson.com/)
 
-- Configure the top-level `parserOptions` property like this:
+[Technical requirements](https://www.figma.com/design/gsRFvWJ8Xlz9DPO2LZkMqn/8_tasks_JS_React?node-id=0-1&node-type=CANVAS&t=vay87axT3sdjle3k-0)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**Credentials you can use to login:**
+
+**login:** oliviaw
+
+**password:** oliviawpass
+
+
+## Features
+1. Registration and authorization 
+2. List of products on main page implemented using infinite scrolling
+3. Searching product by name in product list
+4. User cart, adding and removing items from cart
+
+## Setup
+To run this project, download and install it locally using npm:
+
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+$ git clone https://github.com/Irene-lab80/t1.git
+$ cd ./t1
+$ npm install
+$ npm start
 ```
