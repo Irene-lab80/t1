@@ -1,4 +1,4 @@
-Deploy: [https://application-r88w.vercel.app/](https://t1-id20r8iu2-irenelab80s-projects.vercel.app)
+[deploy](https://t1-id20r8iu2-irenelab80s-projects.vercel.app)
 
 # Goods4you
 An app created with React/Redux/TypeScript
